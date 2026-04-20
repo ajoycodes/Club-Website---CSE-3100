@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kmind — Machine Learning Club</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar__inner">
+
+        <a href="#hero" class="navbar__logo">
+          <span class="navbar__logo-k">K</span>mind
+        </a>
+
+        <nav class="navbar__links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#focus">Focus Areas</a>
+          <a href="#projects">Projects</a>
+          <a href="#events">Events</a>
+          <a href="#team">Team</a>
+        </nav>
+
+        <a href="#join" class="btn btn--primary navbar__cta">Join Us</a>
+
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== HERO ===== -->
+      <section class="hero" id="hero">
+
+        <!-- Canvas for animated neural network background -->
+        <canvas class="hero__canvas" id="neuralCanvas"></canvas>
+
+        <div class="container hero__content">
+          <p class="hero__eyebrow">Welcome to</p>
+          <h1 class="hero__title">
+            <span class="hero__title-k">K</span>mind
+          </h1>
+          <p class="hero__tagline">
+            Building the future with Machine Learning —<br />
+            one model at a time.
+          </p>
+          <div class="hero__actions">
+            <a href="#about" class="btn btn--primary">Explore the Club</a>
+            <a href="#projects" class="btn btn--ghost">See Our Work</a>
+          </div>
+        </div>
+
+        <div class="hero__scroll-hint" aria-hidden="true">
+          <span>Scroll</span>
+          <div class="hero__scroll-line"></div>
+        </div>
+
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section class="about" id="about">
+        <div class="container">
+
+          <div class="section-header">
+            <p class="section-eyebrow">Who we are</p>
+            <h2 class="section-title">About Kmind</h2>
+          </div>
+
+          <div class="about__grid">
+
+            <!-- Left: text -->
+            <div class="about__text">
+              <p class="about__lead">
+                Kmind is a student-driven machine learning club dedicated to
+                exploring, building, and sharing cutting-edge AI research and
+                projects.
+              </p>
+              <p class="about__body">
+                Founded by a group of curious engineers and researchers, we bring
+                together students from all disciplines who share a passion for
+                intelligent systems. Whether you are just starting out or have
+                years of experience, Kmind is your community to grow, collaborate,
+                and push boundaries.
+              </p>
+              <p class="about__body">
+                From weekly reading groups and hands-on workshops to
+                inter-university hackathons, we create opportunities for every
+                member to learn deeply and build meaningfully.
+              </p>
+              <a href="#join" class="btn btn--primary about__cta">Become a Member</a>
+            </div>
+
+            <!-- Right: stats -->
+            <div class="about__stats">
+              <div class="stat-card">
+                <span class="stat-card__number">120<span class="stat-card__plus">+</span></span>
+                <span class="stat-card__label">Active Members</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__number">34<span class="stat-card__plus">+</span></span>
+                <span class="stat-card__label">Projects Shipped</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__number">50<span class="stat-card__plus">+</span></span>
+                <span class="stat-card__label">Events Hosted</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__number">8<span class="stat-card__plus">+</span></span>
+                <span class="stat-card__label">Research Papers</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
