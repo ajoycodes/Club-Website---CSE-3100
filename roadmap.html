@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Roadmap — Kmind ML Club</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="roadmap.css" />
+  </head>
+  <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar__inner">
+        <a href="index.html#hero" class="navbar__logo">
+          <span class="navbar__logo-k">K</span>mind
+        </a>
+        <nav class="navbar__links" id="navLinks">
+          <a href="index.html#about">About</a>
+          <a href="index.html#focus">Focus Areas</a>
+          <a href="projects.html">Projects</a>
+          <a href="index.html#events">Events</a>
+          <a href="index.html#team">Team</a>
+          <a href="blog.html">Blog</a>
+        </nav>
+        <a href="index.html#join" class="btn btn--primary navbar__cta">Join Us</a>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== PAGE HERO ===== -->
+      <section class="page-hero">
+        <div class="container page-hero__inner">
+          <p class="section-eyebrow">Your ML journey</p>
+          <h1 class="page-hero__title">Learning Roadmap</h1>
+          <p class="page-hero__sub">
+            Structured, opinionated learning paths from zero to research-ready.
+            Pick a track and follow the phases — or start with Foundations if
+            you are new to ML.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== TRACK TABS ===== -->
+      <section class="roadmap-section">
+        <div class="container">
+
+          <div class="track-tabs" id="trackTabs" role="tablist">
+            <button class="track-tab track-tab--active" data-track="foundations" role="tab" aria-selected="true">
+              <span class="track-tab__icon">&#127963;</span>
+              ML Foundations
+            </button>
+            <button class="track-tab" data-track="cv" role="tab" aria-selected="false">
+              <span class="track-tab__icon">&#128065;</span>
+              Computer Vision
+            </button>
+            <button class="track-tab" data-track="nlp" role="tab" aria-selected="false">
+              <span class="track-tab__icon">&#128172;</span>
+              NLP
+            </button>
+            <button class="track-tab" data-track="rl" role="tab" aria-selected="false">
+              <span class="track-tab__icon">&#127918;</span>
+              Reinforcement Learning
+            </button>
+            <button class="track-tab" data-track="mlops" role="tab" aria-selected="false">
+              <span class="track-tab__icon">&#129302;</span>
+              MLOps
+            </button>
+          </div>
+
+          <!-- ══════════ TRACK: ML FOUNDATIONS ══════════ -->
+          <div class="track-content track-content--active" data-track="foundations">
+
+            <div class="track-intro">
+              <p class="track-intro__text">
+                The essential foundation every ML practitioner needs — regardless
+                of specialisation. Complete this track before branching into any
+                other.
+              </p>
+              <span class="track-intro__time">&#128336; Est. 14–20 weeks</span>
+            </div>
+
+            <div class="roadmap-timeline">
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">01</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Prerequisites</h2>
+                    <span class="phase__duration">2 – 4 weeks</span>
+                  </div>
+                  <p class="phase__desc">
+                    Build the mathematical and programming backbone you will rely
+                    on throughout your ML career.
+                  </p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Python for Data Science</h4>
+                        <p class="topic__detail">NumPy, Pandas, Matplotlib — the core scientific stack</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128218; Python Data Science Handbook</a>
+                          <a href="#" class="resource-link">&#127908; CS50P (free)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Linear Algebra</h4>
+                        <p class="topic__detail">Vectors, matrices, eigenvalues, SVD — the geometry behind ML</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; 3Blue1Brown — Essence of Linear Algebra</a>
+                          <a href="#" class="resource-link">&#128218; Gilbert Strang — Intro to Linear Algebra</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Statistics &amp; Probability</h4>
+                        <p class="topic__detail">Distributions, Bayes' theorem, hypothesis testing, MLE</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; StatQuest with Josh Starmer</a>
+                          <a href="#" class="resource-link">&#128218; Think Stats (free online)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Calculus &amp; Optimisation</h4>
+                        <p class="topic__detail">Derivatives, chain rule, gradient descent intuition</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; 3Blue1Brown — Essence of Calculus</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">02</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Classical Machine Learning</h2>
+                    <span class="phase__duration">4 – 6 weeks</span>
+                  </div>
+                  <p class="phase__desc">
+                    Core ML algorithms, evaluation methodology, and hands-on
+                    practice with scikit-learn.
+                  </p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Supervised Learning</h4>
+                        <p class="topic__detail">Linear &amp; logistic regression, SVMs, decision trees, random forests</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Andrew Ng — ML Specialisation (Coursera)</a>
+                          <a href="#" class="resource-link">&#128218; Hands-on ML with Scikit-Learn</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Unsupervised Learning</h4>
+                        <p class="topic__detail">K-means, DBSCAN, PCA, t-SNE, autoencoders</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Stanford CS229 Lecture Notes</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Model Evaluation &amp; Selection</h4>
+                        <p class="topic__detail">Cross-validation, bias-variance tradeoff, precision/recall, ROC-AUC</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128218; scikit-learn documentation</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Feature Engineering</h4>
+                        <p class="topic__detail">Encoding, scaling, imputation, feature selection, pipelines</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Kaggle — Feature Engineering Course (free)</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">03</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Deep Learning</h2>
+                    <span class="phase__duration">6 – 8 weeks</span>
+                  </div>
+                  <p class="phase__desc">
+                    Neural networks from scratch, modern frameworks, and the
+                    training loop in full detail.
+                  </p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Neural Networks &amp; Backpropagation</h4>
+                        <p class="topic__detail">Forward/backward pass, activation functions, weight initialisation</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Andrej Karpathy — Neural Networks: Zero to Hero</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">PyTorch Fundamentals</h4>
+                        <p class="topic__detail">Tensors, autograd, nn.Module, DataLoader, training loop</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; fast.ai Practical Deep Learning (free)</a>
+                          <a href="#" class="resource-link">&#128218; Official PyTorch tutorials</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Regularisation &amp; Optimisation</h4>
+                        <p class="topic__detail">Dropout, batch norm, Adam, learning rate schedules, early stopping</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; deeplearning.ai — Improving Deep Neural Networks</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">04</span>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Choose Your Specialisation</h2>
+                    <span class="phase__duration">Next track</span>
+                  </div>
+                  <p class="phase__desc">
+                    You now have the foundation to dive deep into any specialisation.
+                  </p>
+                  <div class="specialisation-cards">
+                    <button class="spec-card" data-goto="cv">
+                      <span>&#128065;</span> Computer Vision
+                    </button>
+                    <button class="spec-card" data-goto="nlp">
+                      <span>&#128172;</span> NLP
+                    </button>
+                    <button class="spec-card" data-goto="rl">
+                      <span>&#127918;</span> Reinforcement Learning
+                    </button>
+                    <button class="spec-card" data-goto="mlops">
+                      <span>&#129302;</span> MLOps
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ══════════ TRACK: COMPUTER VISION ══════════ -->
+          <div class="track-content" data-track="cv">
+
+            <div class="track-intro">
+              <p class="track-intro__text">
+                From pixel operations to state-of-the-art detection and generation
+                models. Assumes ML Foundations is complete.
+              </p>
+              <span class="track-intro__time">&#128336; Est. 16–22 weeks</span>
+            </div>
+
+            <div class="roadmap-timeline">
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">01</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Image Basics &amp; CNNs</h2>
+                    <span class="phase__duration">3 – 4 weeks</span>
+                  </div>
+                  <p class="phase__desc">Image representations, classical operations, and the core convolutional building block.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Image Processing with OpenCV</h4>
+                        <p class="topic__detail">Colour spaces, morphological ops, edge detection (Sobel, Canny), histograms</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128218; OpenCV Python Tutorials (official)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Convolutional Neural Networks</h4>
+                        <p class="topic__detail">Conv layers, pooling, receptive field, LeNet → AlexNet intuition</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Stanford CS231n — CNNs for Visual Recognition</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Transfer Learning</h4>
+                        <p class="topic__detail">Fine-tuning pretrained models (ResNet, EfficientNet) on custom datasets</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; fast.ai Lesson 1–3</a>
+                          <a href="#" class="resource-link">&#128218; Torchvision pretrained models</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">02</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Object Detection &amp; Segmentation</h2>
+                    <span class="phase__duration">5 – 7 weeks</span>
+                  </div>
+                  <p class="phase__desc">Locate and classify multiple objects; pixel-level understanding of images.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Anchor-Based Detection</h4>
+                        <p class="topic__detail">Faster R-CNN, anchor boxes, IoU, non-max suppression, RPN</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128196; Paper: "Faster R-CNN" (Ren et al. 2015)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">YOLO Family</h4>
+                        <p class="topic__detail">YOLOv5 → YOLOv8, anchor-free detection, custom training pipeline</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Ultralytics YOLOv8 Docs</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Semantic &amp; Instance Segmentation</h4>
+                        <p class="topic__detail">U-Net, Mask R-CNN, SAM (Segment Anything Model)</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128196; Paper: "U-Net" (Ronneberger et al. 2015)</a>
+                          <a href="#" class="resource-link">&#127916; Meta AI SAM tutorial</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">03</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Vision Transformers &amp; Generative Models</h2>
+                    <span class="phase__duration">5 – 7 weeks</span>
+                  </div>
+                  <p class="phase__desc">Modern architectures that push the state of the art in recognition and generation.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Vision Transformers (ViT)</h4>
+                        <p class="topic__detail">Patch embeddings, self-attention for images, DINO, DINOv2</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128196; Paper: "An Image is Worth 16×16 Words" (Dosovitskiy et al.)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Diffusion Models</h4>
+                        <p class="topic__detail">DDPM, score matching, latent diffusion, fine-tuning with LoRA / DreamBooth</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; HuggingFace Diffusers course (free)</a>
+                          <a href="#" class="resource-link">&#128196; Paper: "DDPM" (Ho et al. 2020)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Multimodal Models</h4>
+                        <p class="topic__detail">CLIP, BLIP-2, image-text contrastive learning, visual question answering</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128196; Paper: "CLIP" (Radford et al. 2021)</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">04</span>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Production &amp; Research</h2>
+                    <span class="phase__duration">Ongoing</span>
+                  </div>
+                  <p class="phase__desc">Deploy models to real systems, contribute to open-source, or pursue original research.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Edge Deployment</h4>
+                        <p class="topic__detail">ONNX export, TensorRT, OpenVINO, model quantisation &amp; pruning</p>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Read &amp; Reproduce Papers</h4>
+                        <p class="topic__detail">Pick papers from CVPR / ICCV / ECCV and implement them from scratch</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ══════════ TRACK: NLP ══════════ -->
+          <div class="track-content" data-track="nlp">
+
+            <div class="track-intro">
+              <p class="track-intro__text">
+                Text processing, sequence modelling, and modern LLMs — from bag
+                of words to fine-tuning billion-parameter models. Assumes ML
+                Foundations is complete.
+              </p>
+              <span class="track-intro__time">&#128336; Est. 16–24 weeks</span>
+            </div>
+
+            <div class="roadmap-timeline">
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">01</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Text Processing &amp; Classical NLP</h2>
+                    <span class="phase__duration">3 – 4 weeks</span>
+                  </div>
+                  <p class="phase__desc">The building blocks that underpin every modern NLP system.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Text Preprocessing</h4>
+                        <p class="topic__detail">Tokenisation, stemming, lemmatisation, stopwords, regex, spaCy</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128218; spaCy 101 (official docs)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Bag-of-Words &amp; TF-IDF</h4>
+                        <p class="topic__detail">CountVectorizer, TF-IDF, Naive Bayes classifier, text similarity</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Natural Language Processing with Python (NLTK Book)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Word Embeddings</h4>
+                        <p class="topic__detail">Word2Vec, GloVe, FastText — dense representations of meaning</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Stanford CS224N — Word Vectors lecture</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">02</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Sequence Models &amp; Attention</h2>
+                    <span class="phase__duration">4 – 6 weeks</span>
+                  </div>
+                  <p class="phase__desc">Modelling order and context in language — the path to Transformers.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">RNNs &amp; LSTMs</h4>
+                        <p class="topic__detail">Vanishing gradients, gated units, sequence-to-sequence, teacher forcing</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Andrej Karpathy — char-RNN blog post</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Attention Mechanism</h4>
+                        <p class="topic__detail">Bahdanau attention, scaled dot-product attention, multi-head attention</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128196; Paper: "Attention Is All You Need" (Vaswani et al. 2017)</a>
+                          <a href="#" class="resource-link">&#127916; The Illustrated Transformer — Jay Alammar</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">03</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Transformers &amp; Pretrained LLMs</h2>
+                    <span class="phase__duration">5 – 7 weeks</span>
+                  </div>
+                  <p class="phase__desc">The modern backbone of almost every NLP system.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">BERT &amp; Encoder Models</h4>
+                        <p class="topic__detail">Masked language modelling, NSP, fine-tuning for classification &amp; NER</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; HuggingFace NLP Course Ch. 1–4 (free)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">GPT &amp; Decoder Models</h4>
+                        <p class="topic__detail">Causal LM, autoregressive generation, temperature, sampling strategies</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Andrej Karpathy — Let's build GPT from scratch</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Fine-Tuning &amp; PEFT</h4>
+                        <p class="topic__detail">Full fine-tuning, LoRA, QLoRA, instruction tuning with Alpaca / Dolly datasets</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128218; HuggingFace PEFT library docs</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">04</span>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Advanced LLM Applications</h2>
+                    <span class="phase__duration">Ongoing</span>
+                  </div>
+                  <p class="phase__desc">Production patterns for LLM-powered systems.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">RAG Pipelines</h4>
+                        <p class="topic__detail">Embedding models, vector stores (FAISS, Chroma), re-ranking, evaluation</p>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">RLHF &amp; Alignment</h4>
+                        <p class="topic__detail">Reward modelling, PPO on LLMs, DPO, constitutional AI</p>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Evaluation &amp; Benchmarking</h4>
+                        <p class="topic__detail">BLEU, ROUGE, BERTScore, LLM-as-judge, LM-Eval-Harness</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ══════════ TRACK: REINFORCEMENT LEARNING ══════════ -->
+          <div class="track-content" data-track="rl">
+
+            <div class="track-intro">
+              <p class="track-intro__text">
+                Agents that learn by doing — from tabular methods to deep RL
+                systems that master games and control robots. Assumes ML
+                Foundations is complete.
+              </p>
+              <span class="track-intro__time">&#128336; Est. 18–24 weeks</span>
+            </div>
+
+            <div class="roadmap-timeline">
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">01</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">RL Fundamentals</h2>
+                    <span class="phase__duration">4 – 6 weeks</span>
+                  </div>
+                  <p class="phase__desc">The mathematical framework every RL algorithm is built on.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">MDPs &amp; Bellman Equations</h4>
+                        <p class="topic__detail">States, actions, rewards, policies, value functions, discount factor γ</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128218; Sutton &amp; Barto — RL: An Introduction (free PDF)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Tabular Methods</h4>
+                        <p class="topic__detail">Monte Carlo, TD-learning, Q-learning, SARSA, ε-greedy exploration</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; David Silver — UCL RL Lectures (YouTube)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">OpenAI Gymnasium</h4>
+                        <p class="topic__detail">Environment API, CartPole / MountainCar, observation &amp; action spaces</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128218; Gymnasium documentation</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">02</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Deep Reinforcement Learning</h2>
+                    <span class="phase__duration">6 – 8 weeks</span>
+                  </div>
+                  <p class="phase__desc">Combine deep neural networks with RL to tackle high-dimensional environments.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Deep Q-Networks (DQN)</h4>
+                        <p class="topic__detail">Experience replay, target network, Double DQN, Dueling DQN, PER</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128196; Paper: "Human-level control through DRL" (Mnih et al. 2015)</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Policy Gradient Methods</h4>
+                        <p class="topic__detail">REINFORCE, actor-critic (A2C/A3C), advantage estimation, entropy bonus</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#127916; Spinning Up in Deep RL — OpenAI</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">PPO &amp; SAC</h4>
+                        <p class="topic__detail">Clipped objective (PPO), entropy regularisation (SAC), continuous control</p>
+                        <div class="topic__resources">
+                          <a href="#" class="resource-link">&#128196; Paper: "Proximal Policy Optimization" (Schulman et al. 2017)</a>
+                          <a href="#" class="resource-link">&#128218; Stable-Baselines3 docs</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">03</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Advanced RL Topics</h2>
+                    <span class="phase__duration">5 – 7 weeks</span>
+                  </div>
+                  <p class="phase__desc">Scalable and specialised techniques for real-world RL problems.</p>
+                  <div class="phase__topics">
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Model-Based RL</h4>
+                        <p class="topic__detail">World models, Dyna architecture, MuZero, Dreamer</p>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Multi-Agent RL</h4>
+                        <p class="topic__detail">Cooperative vs competitive settings, MADDPG, QMIX, PettingZoo</p>
+                      </div>
+                    </div>
+                    <div class="topic">
+                      <span class="topic__dot"></span>
+                      <div class="topic__content">
+                        <h4 class="topic__name">Sim-to-Real Transfer</h4>
+                        <p class="topic__detail">Domain randomisation, MuJoCo / Isaac Gym, real robot deployment</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">04</span>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Applications &amp; Research</h2>
+                    <span class="phase__duration">Ongoing</span>
+                  </div>
+                  <p class="phase__desc">Apply your skills to open problems in games, robotics, and optimisation.</p>
+                  <div class="phase__topics">
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">Game Playing</h4><p class="topic__detail">Atari, Chess/Go with AlphaZero, custom competitive environments</p></div></div>
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">Robotics</h4><p class="topic__detail">Locomotion, manipulation, navigation with physical or simulated robots</p></div></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ══════════ TRACK: MLOPS ══════════ -->
+          <div class="track-content" data-track="mlops">
+
+            <div class="track-intro">
+              <p class="track-intro__text">
+                Taking models from notebook to production — versioning, pipelines,
+                deployment, monitoring. Assumes ML Foundations is complete.
+              </p>
+              <span class="track-intro__time">&#128336; Est. 12–18 weeks</span>
+            </div>
+
+            <div class="roadmap-timeline">
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">01</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Engineering Foundations</h2>
+                    <span class="phase__duration">2 – 3 weeks</span>
+                  </div>
+                  <p class="phase__desc">Software engineering practices every ML engineer should know.</p>
+                  <div class="phase__topics">
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">Git &amp; GitHub for ML</h4><p class="topic__detail">Branching, pull requests, Git LFS for large files, CI basics</p><div class="topic__resources"><a href="#" class="resource-link">&#127916; The Missing Semester of CS Education (MIT)</a></div></div></div>
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">Python Packaging &amp; Environments</h4><p class="topic__detail">venv, Poetry, pyproject.toml, structuring an ML project</p></div></div>
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">Testing ML Code</h4><p class="topic__detail">pytest, data validation with Great Expectations, testing pipelines</p></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">02</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Experiment Tracking &amp; Data Versioning</h2>
+                    <span class="phase__duration">3 – 4 weeks</span>
+                  </div>
+                  <p class="phase__desc">Reproducible experiments and auditable datasets.</p>
+                  <div class="phase__topics">
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">MLflow</h4><p class="topic__detail">Tracking runs, logging params/metrics/artifacts, model registry, UI</p><div class="topic__resources"><a href="#" class="resource-link">&#128218; MLflow documentation</a></div></div></div>
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">DVC (Data Version Control)</h4><p class="topic__detail">Versioning large datasets &amp; models with Git-like commands</p><div class="topic__resources"><a href="#" class="resource-link">&#128218; DVC Get Started guide</a></div></div></div>
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">Weights &amp; Biases (W&amp;B)</h4><p class="topic__detail">Rich experiment dashboards, sweeps (hyperparameter search), artefacts</p></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">03</span>
+                  <div class="phase__line"></div>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Model Serving &amp; Deployment</h2>
+                    <span class="phase__duration">4 – 6 weeks</span>
+                  </div>
+                  <p class="phase__desc">Wrap your model in an API and ship it reliably to users.</p>
+                  <div class="phase__topics">
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">FastAPI for ML APIs</h4><p class="topic__detail">Pydantic models, async endpoints, input validation, Swagger UI</p><div class="topic__resources"><a href="#" class="resource-link">&#128218; FastAPI official docs</a></div></div></div>
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">Docker for ML</h4><p class="topic__detail">Multi-stage builds, GPU-enabled images (CUDA), slim production images</p><div class="topic__resources"><a href="#" class="resource-link">&#127916; Docker for ML Engineers — blog series</a></div></div></div>
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">Cloud Deployment</h4><p class="topic__detail">AWS SageMaker / GCP Vertex AI basics, serverless inference, autoscaling</p></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phase">
+                <div class="phase__marker">
+                  <span class="phase__num">04</span>
+                </div>
+                <div class="phase__body">
+                  <div class="phase__header">
+                    <h2 class="phase__title">Production ML Systems</h2>
+                    <span class="phase__duration">Ongoing</span>
+                  </div>
+                  <p class="phase__desc">Keep models healthy at scale: monitor, retrain, and iterate.</p>
+                  <div class="phase__topics">
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">ML Monitoring</h4><p class="topic__detail">Data drift, concept drift, Evidently AI, Prometheus + Grafana dashboards</p></div></div>
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">CI/CD for ML</h4><p class="topic__detail">GitHub Actions pipelines, automated retraining triggers, model promotion gates</p></div></div>
+                    <div class="topic"><span class="topic__dot"></span><div class="topic__content"><h4 class="topic__name">Feature Stores</h4><p class="topic__detail">Feast, Tecton — sharing and serving features consistently across training &amp; inference</p></div></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===== CTA ===== -->
+      <section class="roadmap-cta">
+        <div class="container roadmap-cta__inner">
+          <h2 class="roadmap-cta__title">Start your journey with Kmind</h2>
+          <p class="roadmap-cta__sub">
+            Every track has a corresponding study group at Kmind. Join us and
+            work through the roadmap with peers who are one step ahead.
+          </p>
+          <div class="roadmap-cta__actions">
+            <a href="index.html#join" class="btn btn--primary">Join the Club</a>
+            <a href="index.html#events" class="btn btn--ghost">Upcoming Workshops</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html#hero" class="footer__logo"><span class="footer__logo-k">K</span>mind</a>
+          <p class="footer__tagline">Building the future with Machine Learning.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-link" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Discord"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Navigate</h4>
+            <a href="index.html#about" class="footer__link">About</a>
+            <a href="index.html#focus" class="footer__link">Focus Areas</a>
+            <a href="projects.html" class="footer__link">Projects</a>
+            <a href="index.html#events" class="footer__link">Events</a>
+            <a href="index.html#team" class="footer__link">Team</a>
+            <a href="index.html#join" class="footer__link">Join Us</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Resources</h4>
+            <a href="blog.html" class="footer__link">Blog</a>
+            <a href="research.html" class="footer__link">Research Papers</a>
+            <a href="#" class="footer__link">GitHub Repos</a>
+            <a href="roadmap.html" class="footer__link">Learning Roadmap</a>
+            <a href="#" class="footer__link">Newsletter</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Contact</h4>
+            <a href="mailto:hello@kmind.club" class="footer__link">hello@kmind.club</a>
+            <a href="#" class="footer__link">Discord Server</a>
+            <a href="#" class="footer__link">Facebook Group</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="container">
+          <p class="footer__copy">&copy; 2026 Kmind ML Club. All rights reserved.</p>
+          <div class="footer__bottom-links">
+            <a href="#" class="footer__link">Privacy Policy</a>
+            <a href="#" class="footer__link">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="roadmap.js"></script>
+  </body>
+</html>

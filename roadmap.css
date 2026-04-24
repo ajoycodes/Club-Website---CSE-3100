@@ -1,0 +1,420 @@
+/* ============================================================
+   ROADMAP PAGE — roadmap.css
+   Depends on style.css for tokens, navbar, footer, utilities
+   ============================================================ */
+
+/* ── Page Hero ── */
+.page-hero {
+  padding-top: calc(var(--navbar-h) + var(--space-16));
+  padding-bottom: var(--space-12);
+  background: var(--clr-bg);
+  text-align: center;
+  position: relative;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--clr-border-glow), transparent);
+}
+
+.page-hero__title {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--clr-heading);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.03em;
+}
+
+.page-hero__sub {
+  max-width: 560px;
+  margin-inline: auto;
+  color: var(--clr-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ── Roadmap section wrapper ── */
+.roadmap-section {
+  padding-block: var(--space-16);
+  background: var(--clr-bg-2);
+  position: relative;
+}
+
+.roadmap-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--clr-border-glow), transparent);
+}
+
+/* ── Track tabs ── */
+.track-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+}
+
+.track-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.track-tab:hover {
+  border-color: var(--clr-blue);
+  color: var(--clr-blue);
+}
+
+.track-tab--active {
+  background: var(--clr-blue);
+  border-color: var(--clr-blue);
+  color: var(--clr-white);
+}
+
+.track-tab__icon {
+  font-size: 1rem;
+}
+
+/* ── Track content panels ── */
+.track-content {
+  display: none;
+}
+
+.track-content--active {
+  display: block;
+}
+
+/* ── Track intro bar ── */
+.track-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-left: 3px solid var(--clr-blue);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.track-intro__text {
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  line-height: 1.65;
+  max-width: 680px;
+}
+
+.track-intro__time {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--clr-blue);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Timeline container ── */
+.roadmap-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Phase ── */
+.phase {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0 var(--space-6);
+  position: relative;
+}
+
+/* ── Phase marker (number + line) ── */
+.phase__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding-top: var(--space-1);
+}
+
+.phase__num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--clr-blue);
+  color: var(--clr-white);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 4px rgba(79, 142, 247, 0.15);
+}
+
+.phase__line {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(to bottom, var(--clr-blue-glow), transparent);
+  margin-block: var(--space-2);
+  min-height: 40px;
+}
+
+/* ── Phase body ── */
+.phase__body {
+  padding-bottom: var(--space-12);
+}
+
+.phase__header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.phase__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-heading);
+  line-height: 1.2;
+}
+
+.phase__duration {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--clr-text-faint);
+  background: var(--clr-bg-card-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-full);
+  padding: 0.2rem 0.7rem;
+  white-space: nowrap;
+}
+
+.phase__desc {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  line-height: 1.65;
+  margin-bottom: var(--space-6);
+  max-width: 640px;
+}
+
+/* ── Topic list ── */
+.phase__topics {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.topic {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.topic__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--clr-purple);
+  border: 2px solid rgba(155, 89, 182, 0.3);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.topic__content {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.topic__content:hover {
+  border-color: var(--clr-border-glow);
+  box-shadow: var(--shadow-glow);
+}
+
+.topic__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--clr-heading);
+  margin-bottom: var(--space-1);
+}
+
+.topic__detail {
+  font-size: 0.83rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+}
+
+.topic__resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--clr-border);
+}
+
+.resource-link {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--clr-blue);
+  background: var(--clr-blue-dim);
+  border: 1px solid rgba(79, 142, 247, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.6rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+.resource-link:hover {
+  background: rgba(79, 142, 247, 0.2);
+  color: #6aa3ff;
+}
+
+/* ── Specialisation picker (Phase 04 of Foundations) ── */
+.specialisation-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.spec-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.spec-card:hover,
+.spec-card:focus {
+  border-color: var(--clr-blue);
+  color: var(--clr-blue);
+  background: var(--clr-blue-dim);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ── CTA ── */
+.roadmap-cta {
+  padding-block: var(--space-20);
+  background: var(--clr-bg);
+  position: relative;
+}
+
+.roadmap-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--clr-border-glow), transparent);
+}
+
+.roadmap-cta__inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.roadmap-cta__title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--clr-heading);
+}
+
+.roadmap-cta__sub {
+  max-width: 480px;
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.roadmap-cta__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .track-tabs {
+    gap: var(--space-2);
+  }
+
+  .track-tab {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .phase {
+    grid-template-columns: 40px 1fr;
+    gap: 0 var(--space-4);
+  }
+
+  .phase__num {
+    width: 36px;
+    height: 36px;
+    font-size: 0.7rem;
+  }
+
+  .track-intro {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .specialisation-cards {
+    flex-direction: column;
+  }
+
+  .spec-card {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .phase__body {
+    padding-bottom: var(--space-8);
+  }
+
+  .topic {
+    grid-template-columns: 10px 1fr;
+    gap: var(--space-3);
+  }
+}
