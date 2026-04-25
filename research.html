@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Papers — Kmind ML Club</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="research.css" />
+  </head>
+  <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar__inner">
+        <a href="index.html#hero" class="navbar__logo">
+          <span class="navbar__logo-k">K</span>mind
+        </a>
+        <nav class="navbar__links" id="navLinks">
+          <a href="index.html#about">About</a>
+          <a href="index.html#focus">Focus Areas</a>
+          <a href="projects.html">Projects</a>
+          <a href="index.html#events">Events</a>
+          <a href="index.html#team">Team</a>
+          <a href="blog.html">Blog</a>
+        </nav>
+        <a href="index.html#join" class="btn btn--primary navbar__cta">Join Us</a>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== PAGE HERO ===== -->
+      <section class="page-hero">
+        <div class="container page-hero__inner">
+          <p class="section-eyebrow">Original research</p>
+          <h1 class="page-hero__title">Research Papers</h1>
+          <p class="page-hero__sub">
+            Peer-reviewed publications and pre-prints authored by Kmind members,
+            spanning NLP, computer vision, reinforcement learning, and data science.
+          </p>
+          <div class="research-stats">
+            <div class="research-stat">
+              <span class="research-stat__num">8<span class="research-stat__plus">+</span></span>
+              <span class="research-stat__label">Papers Published</span>
+            </div>
+            <div class="research-stat">
+              <span class="research-stat__num">4</span>
+              <span class="research-stat__label">Top-Tier Venues</span>
+            </div>
+            <div class="research-stat">
+              <span class="research-stat__num">120<span class="research-stat__plus">+</span></span>
+              <span class="research-stat__label">Citations</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PAPERS ===== -->
+      <section class="research-section">
+        <div class="container">
+
+          <!-- Filter -->
+          <div class="research-filters" id="researchFilters">
+            <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="nlp">NLP</button>
+            <button class="filter-btn" data-filter="cv">Computer Vision</button>
+            <button class="filter-btn" data-filter="rl">Reinforcement Learning</button>
+            <button class="filter-btn" data-filter="ds">Data Science</button>
+          </div>
+
+          <!-- Paper list -->
+          <div class="paper-list" id="paperList">
+
+            <!-- Paper 1 -->
+            <article class="paper-card" data-category="nlp">
+              <div class="paper-card__accent"></div>
+              <div class="paper-card__inner">
+                <div class="paper-card__top">
+                  <div class="paper-card__badges">
+                    <span class="venue-badge venue-badge--top">ACL 2026</span>
+                    <span class="paper-status paper-status--submitted">Under Review</span>
+                  </div>
+                  <span class="paper-card__year">2026</span>
+                </div>
+                <h2 class="paper-card__title">
+                  <a href="#">BanglaQA: A Large-Scale Question Answering Benchmark for the Bengali Language</a>
+                </h2>
+                <div class="paper-card__authors">
+                  <img src="https://i.pravatar.cc/24?img=68" alt="Tahsin Hossain" class="author-chip__avatar">
+                  <span class="author-chip">Tahsin Hossain</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=35" alt="Fatema Begum" class="author-chip__avatar">
+                  <span class="author-chip">Fatema Begum</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=44" alt="Lamia Chowdhury" class="author-chip__avatar">
+                  <span class="author-chip">Lamia Chowdhury</span>
+                  <span class="author-sep">,</span>
+                  <span class="author-chip author-chip--external">Md. Anisur Rahman (BUET)</span>
+                </div>
+                <p class="paper-card__abstract">
+                  We introduce BanglaQA, a extractive and abstractive question answering
+                  dataset containing 12,400 QA pairs across eight domains including law,
+                  healthcare, and social science. We establish strong baselines using
+                  multilingual BERT variants and a novel Bengali-specific pre-trained
+                  encoder, demonstrating significant gaps relative to English QA performance
+                  that motivate further low-resource NLP research.
+                </p>
+                <div class="paper-card__tags">
+                  <span class="tag">NLP</span>
+                  <span class="tag">Low-Resource</span>
+                  <span class="tag">Bengali</span>
+                  <span class="tag">QA</span>
+                </div>
+                <div class="paper-card__links">
+                  <a href="#" class="paper-link paper-link--arxiv">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    arXiv
+                  </a>
+                  <a href="#" class="paper-link paper-link--github">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Code + Dataset
+                  </a>
+                  <button class="paper-link paper-link--cite" data-id="banglaqa26">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    Cite
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 2 -->
+            <article class="paper-card" data-category="cv">
+              <div class="paper-card__accent"></div>
+              <div class="paper-card__inner">
+                <div class="paper-card__top">
+                  <div class="paper-card__badges">
+                    <span class="venue-badge venue-badge--top">ICCV 2025</span>
+                    <span class="paper-status paper-status--published">Published</span>
+                  </div>
+                  <span class="paper-card__year">2025</span>
+                </div>
+                <h2 class="paper-card__title">
+                  <a href="#">CampusEye: Anchor-Free Multi-Object Tracking for Resource-Constrained Edge Deployment</a>
+                </h2>
+                <div class="paper-card__authors">
+                  <img src="https://i.pravatar.cc/24?img=53" alt="Arif Rahman" class="author-chip__avatar">
+                  <span class="author-chip">Arif Rahman</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=65" alt="Mehedi Hasan" class="author-chip__avatar">
+                  <span class="author-chip">Mehedi Hasan</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=40" alt="Sadia Akter" class="author-chip__avatar">
+                  <span class="author-chip">Sadia Akter</span>
+                </div>
+                <p class="paper-card__abstract">
+                  We present CampusEye, a lightweight multi-object tracking framework
+                  built on an anchor-free YOLOv8 backbone with a novel re-identification
+                  head optimised for constrained hardware. On the MOT17 benchmark, our
+                  model achieves 68.4 HOTA while running at 42 FPS on a Jetson Orin Nano,
+                  outperforming comparable methods by 4.2 HOTA points at half the latency.
+                </p>
+                <div class="paper-card__tags">
+                  <span class="tag">Computer Vision</span>
+                  <span class="tag">Object Tracking</span>
+                  <span class="tag">Edge AI</span>
+                </div>
+                <div class="paper-card__links">
+                  <a href="#" class="paper-link paper-link--arxiv">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    arXiv
+                  </a>
+                  <a href="#" class="paper-link paper-link--github">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Code
+                  </a>
+                  <button class="paper-link paper-link--cite" data-id="campuseye25">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    Cite
+                  </button>
+                  <span class="paper-citations">&#128196; 34 citations</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 3 -->
+            <article class="paper-card" data-category="cv">
+              <div class="paper-card__accent"></div>
+              <div class="paper-card__inner">
+                <div class="paper-card__top">
+                  <div class="paper-card__badges">
+                    <span class="venue-badge venue-badge--top">CVPR 2025</span>
+                    <span class="paper-status paper-status--published">Published</span>
+                  </div>
+                  <span class="paper-card__year">2025</span>
+                </div>
+                <h2 class="paper-card__title">
+                  <a href="#">Stylistic Latent Diffusion for Regional Folk Art Generation with Cultural Fidelity Metrics</a>
+                </h2>
+                <div class="paper-card__authors">
+                  <img src="https://i.pravatar.cc/24?img=47" alt="Nadia Islam" class="author-chip__avatar">
+                  <span class="author-chip">Nadia Islam</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=40" alt="Sadia Akter" class="author-chip__avatar">
+                  <span class="author-chip">Sadia Akter</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=35" alt="Fatema Begum" class="author-chip__avatar">
+                  <span class="author-chip">Fatema Begum</span>
+                </div>
+                <p class="paper-card__abstract">
+                  We propose a fine-tuning methodology for latent diffusion models that
+                  preserves the stylistic integrity of culturally significant art traditions.
+                  Applied to Bangladeshi Nakshi Kantha and Jamdani motifs, our approach
+                  introduces a Cultural Fidelity Score (CFS) metric and demonstrates that
+                  LoRA-based fine-tuning on curated datasets of 2,400 images achieves
+                  superior CLIP-based style alignment over full fine-tuning baselines.
+                </p>
+                <div class="paper-card__tags">
+                  <span class="tag">Computer Vision</span>
+                  <span class="tag">Generative AI</span>
+                  <span class="tag">Diffusion Models</span>
+                  <span class="tag">LoRA</span>
+                </div>
+                <div class="paper-card__links">
+                  <a href="#" class="paper-link paper-link--arxiv">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    arXiv
+                  </a>
+                  <a href="#" class="paper-link paper-link--github">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Code + Dataset
+                  </a>
+                  <button class="paper-link paper-link--cite" data-id="artforge25">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    Cite
+                  </button>
+                  <span class="paper-citations">&#128196; 51 citations</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 4 -->
+            <article class="paper-card" data-category="nlp">
+              <div class="paper-card__accent"></div>
+              <div class="paper-card__inner">
+                <div class="paper-card__top">
+                  <div class="paper-card__badges">
+                    <span class="venue-badge">EMNLP 2025</span>
+                    <span class="paper-status paper-status--published">Published</span>
+                  </div>
+                  <span class="paper-card__year">2025</span>
+                </div>
+                <h2 class="paper-card__title">
+                  <a href="#">SentimentBD: A Benchmark for Aspect-Level Sentiment Analysis in Code-Mixed Bengali–English</a>
+                </h2>
+                <div class="paper-card__authors">
+                  <img src="https://i.pravatar.cc/24?img=44" alt="Lamia Chowdhury" class="author-chip__avatar">
+                  <span class="author-chip">Lamia Chowdhury</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=35" alt="Fatema Begum" class="author-chip__avatar">
+                  <span class="author-chip">Fatema Begum</span>
+                  <span class="author-sep">,</span>
+                  <span class="author-chip author-chip--external">Shafiq Joty (NTU)</span>
+                </div>
+                <p class="paper-card__abstract">
+                  Code-mixing in Bengali social media presents unique challenges for
+                  sentiment analysis systems trained on monolingual data. We release
+                  SentimentBD — 50,400 annotated posts from Facebook and Twitter with
+                  fine-grained aspect and polarity labels — and show that a
+                  language-adaptive pre-training strategy on code-mixed text reduces
+                  cross-lingual transfer error by 19% over mBERT baselines.
+                </p>
+                <div class="paper-card__tags">
+                  <span class="tag">NLP</span>
+                  <span class="tag">Sentiment Analysis</span>
+                  <span class="tag">Code-Mixing</span>
+                  <span class="tag">Bengali</span>
+                </div>
+                <div class="paper-card__links">
+                  <a href="#" class="paper-link paper-link--arxiv">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    arXiv
+                  </a>
+                  <a href="#" class="paper-link paper-link--github">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Dataset
+                  </a>
+                  <button class="paper-link paper-link--cite" data-id="sentimentbd25">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    Cite
+                  </button>
+                  <span class="paper-citations">&#128196; 22 citations</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 5 -->
+            <article class="paper-card" data-category="ds">
+              <div class="paper-card__accent"></div>
+              <div class="paper-card__inner">
+                <div class="paper-card__top">
+                  <div class="paper-card__badges">
+                    <span class="venue-badge">Applied Energy 2025</span>
+                    <span class="paper-status paper-status--published">Published</span>
+                  </div>
+                  <span class="paper-card__year">2025</span>
+                </div>
+                <h2 class="paper-card__title">
+                  <a href="#">Temporal Fusion Transformers for Campus-Scale Energy Demand Forecasting with Uncertainty Quantification</a>
+                </h2>
+                <div class="paper-card__authors">
+                  <img src="https://i.pravatar.cc/24?img=57" alt="Raihan Kabir" class="author-chip__avatar">
+                  <span class="author-chip">Raihan Kabir</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=35" alt="Fatema Begum" class="author-chip__avatar">
+                  <span class="author-chip">Fatema Begum</span>
+                  <span class="author-sep">,</span>
+                  <span class="author-chip author-chip--external">Dr. Kamrul Hasan (KUET)</span>
+                </div>
+                <p class="paper-card__abstract">
+                  Accurate energy demand forecasting is critical for smart campus
+                  infrastructure. We apply Temporal Fusion Transformers (TFT) to
+                  30 years of electricity consumption data from a Bangladeshi university,
+                  incorporating weather, occupancy, and calendar features. Our model
+                  achieves a 18% reduction in peak load prediction error versus
+                  LSTM baselines, with calibrated prediction intervals enabling
+                  risk-aware demand response.
+                </p>
+                <div class="paper-card__tags">
+                  <span class="tag">Data Science</span>
+                  <span class="tag">Time Series</span>
+                  <span class="tag">Forecasting</span>
+                  <span class="tag">Energy</span>
+                </div>
+                <div class="paper-card__links">
+                  <a href="#" class="paper-link paper-link--arxiv">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    PDF
+                  </a>
+                  <a href="#" class="paper-link paper-link--github">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Code
+                  </a>
+                  <button class="paper-link paper-link--cite" data-id="energypulse25">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    Cite
+                  </button>
+                  <span class="paper-citations">&#128196; 8 citations</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 6 -->
+            <article class="paper-card" data-category="rl">
+              <div class="paper-card__accent"></div>
+              <div class="paper-card__inner">
+                <div class="paper-card__top">
+                  <div class="paper-card__badges">
+                    <span class="venue-badge">ICRA 2025</span>
+                    <span class="paper-status paper-status--published">Published</span>
+                  </div>
+                  <span class="paper-card__year">2025</span>
+                </div>
+                <h2 class="paper-card__title">
+                  <a href="#">Domain Randomisation Strategies for Robust Sim-to-Real Transfer in Indoor Mobile Robot Navigation</a>
+                </h2>
+                <div class="paper-card__authors">
+                  <img src="https://i.pravatar.cc/24?img=68" alt="Tahsin Hossain" class="author-chip__avatar">
+                  <span class="author-chip">Tahsin Hossain</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=57" alt="Raihan Kabir" class="author-chip__avatar">
+                  <span class="author-chip">Raihan Kabir</span>
+                  <span class="author-sep">,</span>
+                  <span class="author-chip author-chip--external">Prof. Mahbub Hassan (UNSW)</span>
+                </div>
+                <p class="paper-card__abstract">
+                  Transferring policies trained in simulation to real robots remains
+                  a key bottleneck in practical RL-based robotics. We systematically
+                  evaluate nine domain randomisation strategies — spanning dynamics,
+                  visual appearance, and sensor noise — for a Soft Actor-Critic agent
+                  navigating cluttered indoor environments. A structured randomisation
+                  curriculum reduces sim-to-real performance gap by 31% compared to
+                  uniform randomisation, achieving 89% navigation success on unseen
+                  floor layouts.
+                </p>
+                <div class="paper-card__tags">
+                  <span class="tag">Reinforcement Learning</span>
+                  <span class="tag">Robotics</span>
+                  <span class="tag">Sim-to-Real</span>
+                  <span class="tag">SAC</span>
+                </div>
+                <div class="paper-card__links">
+                  <a href="#" class="paper-link paper-link--arxiv">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    arXiv
+                  </a>
+                  <a href="#" class="paper-link paper-link--github">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Code
+                  </a>
+                  <button class="paper-link paper-link--cite" data-id="robonav25">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    Cite
+                  </button>
+                  <span class="paper-citations">&#128196; 5 citations</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 7 -->
+            <article class="paper-card" data-category="nlp">
+              <div class="paper-card__accent"></div>
+              <div class="paper-card__inner">
+                <div class="paper-card__top">
+                  <div class="paper-card__badges">
+                    <span class="venue-badge">BioNLP @ ACL 2026</span>
+                    <span class="paper-status paper-status--submitted">Under Review</span>
+                  </div>
+                  <span class="paper-card__year">2026</span>
+                </div>
+                <h2 class="paper-card__title">
+                  <a href="#">BioNER-BD: A Named Entity Recognition Corpus for Bangla Clinical and Biomedical Text</a>
+                </h2>
+                <div class="paper-card__authors">
+                  <img src="https://i.pravatar.cc/24?img=35" alt="Fatema Begum" class="author-chip__avatar">
+                  <span class="author-chip">Fatema Begum</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=68" alt="Tahsin Hossain" class="author-chip__avatar">
+                  <span class="author-chip">Tahsin Hossain</span>
+                  <span class="author-sep">,</span>
+                  <span class="author-chip author-chip--external">Dr. Farhana Sarker (BSMMU)</span>
+                </div>
+                <p class="paper-card__abstract">
+                  Clinical NLP for Bangla is severely under-resourced. We present
+                  BioNER-BD, an IRB-approved annotated corpus of 8,200 sentences
+                  from de-identified electronic health records covering disease,
+                  symptom, drug, and procedure entities. Fine-tuning BioBERT with
+                  a Bangla-adapted tokenizer achieves 81.3 F1 on our test split,
+                  establishing the first strong baseline for Bangla clinical NER.
+                </p>
+                <div class="paper-card__tags">
+                  <span class="tag">NLP</span>
+                  <span class="tag">Biomedical</span>
+                  <span class="tag">NER</span>
+                  <span class="tag">Bengali</span>
+                </div>
+                <div class="paper-card__links">
+                  <a href="#" class="paper-link paper-link--arxiv">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    arXiv
+                  </a>
+                  <button class="paper-link paper-link--cite" data-id="bioner26">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    Cite
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 8 -->
+            <article class="paper-card" data-category="cv">
+              <div class="paper-card__accent"></div>
+              <div class="paper-card__inner">
+                <div class="paper-card__top">
+                  <div class="paper-card__badges">
+                    <span class="venue-badge">IGARSS 2025</span>
+                    <span class="paper-status paper-status--published">Published</span>
+                  </div>
+                  <span class="paper-card__year">2025</span>
+                </div>
+                <h2 class="paper-card__title">
+                  <a href="#">Efficient Fine-Tuning of Vision Transformers for Flood Mapping from Low-Resolution Satellite Imagery</a>
+                </h2>
+                <div class="paper-card__authors">
+                  <img src="https://i.pravatar.cc/24?img=53" alt="Arif Rahman" class="author-chip__avatar">
+                  <span class="author-chip">Arif Rahman</span>
+                  <span class="author-sep">,</span>
+                  <img src="https://i.pravatar.cc/24?img=47" alt="Nadia Islam" class="author-chip__avatar">
+                  <span class="author-chip">Nadia Islam</span>
+                  <span class="author-sep">,</span>
+                  <span class="author-chip author-chip--external">SPARRSO Collaboration</span>
+                </div>
+                <p class="paper-card__abstract">
+                  Rapid and accurate flood mapping from satellite imagery is essential
+                  for disaster response in Bangladesh, one of the world's most
+                  flood-prone countries. We fine-tune a DINOv2-based segmentation
+                  head on Sentinel-1 SAR imagery using parameter-efficient adapters,
+                  achieving 87.2% mIoU on a new Bangladesh Flood Segmentation Dataset
+                  (BFSD) we release with 1,240 annotated scenes.
+                </p>
+                <div class="paper-card__tags">
+                  <span class="tag">Computer Vision</span>
+                  <span class="tag">Remote Sensing</span>
+                  <span class="tag">Vision Transformers</span>
+                  <span class="tag">Segmentation</span>
+                </div>
+                <div class="paper-card__links">
+                  <a href="#" class="paper-link paper-link--arxiv">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    PDF
+                  </a>
+                  <a href="#" class="paper-link paper-link--github">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Dataset
+                  </a>
+                  <button class="paper-link paper-link--cite" data-id="flood25">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    Cite
+                  </button>
+                  <span class="paper-citations">&#128196; 12 citations</span>
+                </div>
+              </div>
+            </article>
+
+          </div><!-- /paper-list -->
+
+          <p class="research-empty" id="researchEmpty" style="display:none;">
+            No papers in this area yet — check back soon.
+          </p>
+
+        </div>
+      </section>
+
+      <!-- ===== CITE MODAL ===== -->
+      <div class="cite-modal" id="citeModal" aria-modal="true" role="dialog" aria-label="Citation" hidden>
+        <div class="cite-modal__backdrop" id="citeBackdrop"></div>
+        <div class="cite-modal__box">
+          <div class="cite-modal__header">
+            <h3 class="cite-modal__title">BibTeX Citation</h3>
+            <button class="cite-modal__close" id="citeClose" aria-label="Close">&times;</button>
+          </div>
+          <pre class="cite-modal__code" id="citeCode"></pre>
+          <button class="btn btn--primary cite-modal__copy" id="citeCopy">Copy BibTeX</button>
+        </div>
+      </div>
+
+      <!-- ===== CTA ===== -->
+      <section class="research-cta">
+        <div class="container research-cta__inner">
+          <h2 class="research-cta__title">Want to do research with us?</h2>
+          <p class="research-cta__sub">
+            Kmind runs a monthly paper reading group and pairs members with
+            ongoing research projects. No prior publication experience needed.
+          </p>
+          <div class="research-cta__actions">
+            <a href="index.html#join" class="btn btn--primary">Join the Club</a>
+            <a href="blog.html" class="btn btn--ghost">Read Our Blog</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html#hero" class="footer__logo"><span class="footer__logo-k">K</span>mind</a>
+          <p class="footer__tagline">Building the future with Machine Learning.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-link" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Discord"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Navigate</h4>
+            <a href="index.html#about" class="footer__link">About</a>
+            <a href="index.html#focus" class="footer__link">Focus Areas</a>
+            <a href="projects.html" class="footer__link">Projects</a>
+            <a href="index.html#events" class="footer__link">Events</a>
+            <a href="index.html#team" class="footer__link">Team</a>
+            <a href="index.html#join" class="footer__link">Join Us</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Resources</h4>
+            <a href="blog.html" class="footer__link">Blog</a>
+            <a href="research.html" class="footer__link">Research Papers</a>
+            <a href="#" class="footer__link">GitHub Repos</a>
+            <a href="roadmap.html" class="footer__link">Learning Roadmap</a>
+            <a href="#" class="footer__link">Newsletter</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Contact</h4>
+            <a href="mailto:hello@kmind.club" class="footer__link">hello@kmind.club</a>
+            <a href="#" class="footer__link">Discord Server</a>
+            <a href="#" class="footer__link">Facebook Group</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="container">
+          <p class="footer__copy">&copy; 2026 Kmind ML Club. All rights reserved.</p>
+          <div class="footer__bottom-links">
+            <a href="#" class="footer__link">Privacy Policy</a>
+            <a href="#" class="footer__link">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="research.js"></script>
+  </body>
+</html>
