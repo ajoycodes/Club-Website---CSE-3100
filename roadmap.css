@@ -3,6 +3,14 @@
    Depends on style.css for tokens, navbar, footer, utilities
    ============================================================ */
 
+/* ── Active nav link ── */
+.navbar__link--active {
+  color: var(--clr-blue) !important;
+}
+.navbar__link--active::after {
+  width: 100% !important;
+}
+
 /* ── Page Hero ── */
 .page-hero {
   padding-top: calc(var(--navbar-h) + var(--space-16));
