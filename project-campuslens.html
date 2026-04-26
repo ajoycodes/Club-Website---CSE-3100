@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusLens — Kmind ML Club</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="project-detail.css" />
+  </head>
+  <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar__inner">
+        <a href="index.html#hero" class="navbar__logo">
+          <span class="navbar__logo-k">K</span>mind
+        </a>
+        <nav class="navbar__links" id="navLinks">
+          <a href="index.html#about">About</a>
+          <a href="index.html#focus">Focus Areas</a>
+          <a href="projects.html" class="navbar__link--active">Projects</a>
+          <a href="index.html#events">Events</a>
+          <a href="index.html#team">Team</a>
+          <a href="blog.html">Blog</a>
+          <a href="research.html">Research</a>
+        </nav>
+        <a href="index.html#join" class="btn btn--primary navbar__cta">Join Us</a>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== HERO ===== -->
+      <section class="proj-detail-hero">
+        <div class="container">
+          <div class="proj-detail-hero__breadcrumb">
+            <a href="projects.html">Projects</a>
+            <span>/</span>
+            <span>CampusLens</span>
+          </div>
+          <div class="proj-detail-hero__inner">
+            <div class="proj-detail-hero__text">
+              <div class="proj-detail-hero__meta">
+                <span class="tag">Computer Vision</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">YOLOv8</span>
+                <span class="proj-detail-status proj-detail-status--active">Active</span>
+              </div>
+              <h1 class="proj-detail-hero__title">CampusLens</h1>
+              <p class="proj-detail-hero__sub">
+                Real-time campus object detection and multi-object tracking system
+                deployed on edge hardware. CampusLens identifies people, vehicles,
+                and facilities at two campus gates using an anchor-free YOLOv8
+                backbone with custom Bangladeshi campus fine-tuning.
+              </p>
+              <div class="proj-detail-hero__actions">
+                <a href="#" class="btn btn--primary">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                  View on GitHub
+                </a>
+                <a href="#" class="btn btn--ghost">Live Demo &rarr;</a>
+              </div>
+            </div>
+            <div class="proj-detail-hero__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=760&h=480&fit=crop&auto=format&q=80"
+                alt="CampusLens detection interface"
+                class="proj-detail-hero__img"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== METRICS ===== -->
+      <section class="proj-metrics-bar">
+        <div class="container">
+          <div class="proj-metrics">
+            <div class="proj-metric">
+              <span class="proj-metric__val">94.3%</span>
+              <span class="proj-metric__label">mAP@0.5</span>
+            </div>
+            <div class="proj-metric">
+              <span class="proj-metric__val">28 fps</span>
+              <span class="proj-metric__label">Edge Inference</span>
+            </div>
+            <div class="proj-metric">
+              <span class="proj-metric__val">5</span>
+              <span class="proj-metric__label">Team Members</span>
+            </div>
+            <div class="proj-metric">
+              <span class="proj-metric__val">2</span>
+              <span class="proj-metric__label">Deployed Gates</span>
+            </div>
+            <div class="proj-metric">
+              <span class="proj-metric__val">ICCV '25</span>
+              <span class="proj-metric__label">Published At</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONTENT ===== -->
+      <section class="proj-content-section">
+        <div class="container proj-content-grid">
+
+          <!-- Main content -->
+          <div class="proj-main">
+
+            <!-- Overview -->
+            <div class="proj-block">
+              <h2 class="proj-block__title">Overview</h2>
+              <p class="proj-block__text">
+                CampusLens started as an effort to address real safety and logistics
+                challenges on our university campus. The system leverages an anchor-free
+                multi-object tracking (MOT) pipeline optimised for resource-constrained
+                edge devices — Raspberry Pi 5 and NVIDIA Jetson Nano — without
+                sacrificing accuracy.
+              </p>
+              <p class="proj-block__text">
+                The backbone is a custom-trained YOLOv8n model fine-tuned on a
+                dataset of 12,000 images collected across three Bangladeshi university
+                campuses, covering pedestrians, rickshaws, motorcycles, bicycles, and
+                campus-specific objects such as guard booths and bulletin boards.
+              </p>
+            </div>
+
+            <!-- Architecture -->
+            <div class="proj-block">
+              <h2 class="proj-block__title">Architecture</h2>
+              <ol class="proj-steps">
+                <li class="proj-step">
+                  <div class="proj-step__num">01</div>
+                  <div class="proj-step__body">
+                    <h3 class="proj-step__title">Frame Ingestion</h3>
+                    <p class="proj-step__desc">
+                      RTSP streams from IP cameras are decoded at the edge node.
+                      Frames are downscaled to 640×640 and batched for the detector.
+                    </p>
+                  </div>
+                </li>
+                <li class="proj-step">
+                  <div class="proj-step__num">02</div>
+                  <div class="proj-step__body">
+                    <h3 class="proj-step__title">Detection — YOLOv8n</h3>
+                    <p class="proj-step__desc">
+                      Anchor-free detection head predicts bounding boxes and class
+                      probabilities across 8 classes. INT8 quantisation cuts model
+                      size from 6.3 MB to 1.8 MB and doubles throughput on Jetson.
+                    </p>
+                  </div>
+                </li>
+                <li class="proj-step">
+                  <div class="proj-step__num">03</div>
+                  <div class="proj-step__body">
+                    <h3 class="proj-step__title">Tracking — ByteTrack</h3>
+                    <p class="proj-step__desc">
+                      ByteTrack associates detections across frames using both
+                      high- and low-confidence boxes, recovering occluded objects
+                      that naive trackers miss.
+                    </p>
+                  </div>
+                </li>
+                <li class="proj-step">
+                  <div class="proj-step__num">04</div>
+                  <div class="proj-step__body">
+                    <h3 class="proj-step__title">Dashboard &amp; Alerts</h3>
+                    <p class="proj-step__desc">
+                      A lightweight Flask dashboard streams annotated video to
+                      browser clients via WebSocket. Configurable crowd-density
+                      thresholds trigger real-time alerts.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <!-- Gallery -->
+            <div class="proj-block">
+              <h2 class="proj-block__title">Gallery</h2>
+              <div class="proj-gallery">
+                <img
+                  src="https://images.unsplash.com/photo-1542621334-a254cf47733d?w=600&h=360&fit=crop&auto=format&q=80"
+                  alt="Detection demo on campus"
+                  class="proj-gallery__img"
+                  loading="lazy"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?w=600&h=360&fit=crop&auto=format&q=80"
+                  alt="Edge hardware setup"
+                  class="proj-gallery__img"
+                  loading="lazy"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=360&fit=crop&auto=format&q=80"
+                  alt="Dashboard view"
+                  class="proj-gallery__img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="proj-block">
+              <h2 class="proj-block__title">Tech Stack</h2>
+              <div class="tech-grid">
+                <div class="tech-item">
+                  <span class="tech-item__icon">🔥</span>
+                  <span class="tech-item__name">PyTorch 2.2</span>
+                </div>
+                <div class="tech-item">
+                  <span class="tech-item__icon">👁️</span>
+                  <span class="tech-item__name">YOLOv8 / Ultralytics</span>
+                </div>
+                <div class="tech-item">
+                  <span class="tech-item__icon">📦</span>
+                  <span class="tech-item__name">ByteTrack</span>
+                </div>
+                <div class="tech-item">
+                  <span class="tech-item__icon">⚡</span>
+                  <span class="tech-item__name">ONNX Runtime</span>
+                </div>
+                <div class="tech-item">
+                  <span class="tech-item__icon">🐍</span>
+                  <span class="tech-item__name">Flask + WebSocket</span>
+                </div>
+                <div class="tech-item">
+                  <span class="tech-item__icon">🖥️</span>
+                  <span class="tech-item__name">Jetson Nano / RPi 5</span>
+                </div>
+                <div class="tech-item">
+                  <span class="tech-item__icon">🗄️</span>
+                  <span class="tech-item__name">SQLite + InfluxDB</span>
+                </div>
+                <div class="tech-item">
+                  <span class="tech-item__icon">🐳</span>
+                  <span class="tech-item__name">Docker</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Related paper -->
+            <div class="proj-block">
+              <h2 class="proj-block__title">Related Publication</h2>
+              <div class="proj-paper-ref">
+                <div class="proj-paper-ref__accent"></div>
+                <div class="proj-paper-ref__inner">
+                  <p class="proj-paper-ref__venue">ICCV 2025</p>
+                  <p class="proj-paper-ref__title">
+                    CampusEye: Anchor-Free Multi-Object Tracking for
+                    Resource-Constrained Edge Deployment
+                  </p>
+                  <p class="proj-paper-ref__authors">
+                    Rahman, Arif · Hasan, Mehedi · Akter, Sadia
+                  </p>
+                  <a href="research.html" class="proj-paper-ref__link">
+                    Read paper on Research page &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /proj-main -->
+
+          <!-- Sidebar -->
+          <aside class="proj-sidebar">
+
+            <div class="proj-sidebar-block">
+              <h3 class="proj-sidebar-block__title">Project Info</h3>
+              <dl class="proj-info-list">
+                <dt>Status</dt>
+                <dd><span class="proj-detail-status proj-detail-status--active">Active</span></dd>
+                <dt>Category</dt>
+                <dd>Computer Vision</dd>
+                <dt>Started</dt>
+                <dd>August 2024</dd>
+                <dt>Venue</dt>
+                <dd>ICCV 2025</dd>
+              </dl>
+            </div>
+
+            <div class="proj-sidebar-block">
+              <h3 class="proj-sidebar-block__title">Team</h3>
+              <div class="proj-sidebar-team">
+                <div class="proj-team-member">
+                  <img src="https://i.pravatar.cc/40?img=53" alt="Arif Rahman" class="proj-team-member__avatar" />
+                  <div>
+                    <p class="proj-team-member__name">Arif Rahman</p>
+                    <p class="proj-team-member__role">Lead — CV & Edge</p>
+                  </div>
+                </div>
+                <div class="proj-team-member">
+                  <img src="https://i.pravatar.cc/40?img=65" alt="Mehedi Hasan" class="proj-team-member__avatar" />
+                  <div>
+                    <p class="proj-team-member__name">Mehedi Hasan</p>
+                    <p class="proj-team-member__role">Tracking & ByteTrack</p>
+                  </div>
+                </div>
+                <div class="proj-team-member">
+                  <img src="https://i.pravatar.cc/40?img=40" alt="Sadia Akter" class="proj-team-member__avatar" />
+                  <div>
+                    <p class="proj-team-member__name">Sadia Akter</p>
+                    <p class="proj-team-member__role">Dashboard & Deployment</p>
+                  </div>
+                </div>
+                <div class="proj-team-member">
+                  <img src="https://i.pravatar.cc/40?img=12" alt="Raihan Kabir" class="proj-team-member__avatar" />
+                  <div>
+                    <p class="proj-team-member__name">Raihan Kabir</p>
+                    <p class="proj-team-member__role">Data Collection</p>
+                  </div>
+                </div>
+                <div class="proj-team-member">
+                  <img src="https://i.pravatar.cc/40?img=33" alt="Fatema Begum" class="proj-team-member__avatar" />
+                  <div>
+                    <p class="proj-team-member__name">Fatema Begum</p>
+                    <p class="proj-team-member__role">Model Optimisation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="proj-sidebar-block">
+              <h3 class="proj-sidebar-block__title">Links</h3>
+              <div class="proj-sidebar-links">
+                <a href="#" class="proj-sidebar-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                  GitHub Repository
+                </a>
+                <a href="#" class="proj-sidebar-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live Demo
+                </a>
+                <a href="research.html" class="proj-sidebar-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  Research Paper
+                </a>
+              </div>
+            </div>
+
+          </aside>
+
+        </div><!-- /proj-content-grid -->
+      </section>
+
+      <!-- ===== OTHER PROJECTS ===== -->
+      <section class="proj-related">
+        <div class="container">
+          <h2 class="proj-related__title">More Projects</h2>
+          <div class="proj-related-grid">
+
+            <article class="proj-related-card">
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=480&h=270&fit=crop&auto=format&q=80"
+                alt="StudyBot"
+                class="proj-related-card__img"
+                loading="lazy"
+              />
+              <div class="proj-related-card__body">
+                <div class="proj-related-card__tags">
+                  <span class="tag">NLP</span><span class="tag">LLM</span>
+                </div>
+                <h3 class="proj-related-card__title">StudyBot</h3>
+                <p class="proj-related-card__desc">LLM-powered study assistant fine-tuned on academic syllabi.</p>
+                <a href="projects.html" class="proj-related-card__link">View project &rarr;</a>
+              </div>
+            </article>
+
+            <article class="proj-related-card">
+              <img
+                src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=480&h=270&fit=crop&auto=format&q=80"
+                alt="ArtForge"
+                class="proj-related-card__img"
+                loading="lazy"
+              />
+              <div class="proj-related-card__body">
+                <div class="proj-related-card__tags">
+                  <span class="tag">Generative AI</span><span class="tag">Diffusion</span>
+                </div>
+                <h3 class="proj-related-card__title">ArtForge</h3>
+                <p class="proj-related-card__desc">Generative diffusion model for traditional Bangladeshi folk art.</p>
+                <a href="projects.html" class="proj-related-card__link">View project &rarr;</a>
+              </div>
+            </article>
+
+            <article class="proj-related-card">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=480&h=270&fit=crop&auto=format&q=80"
+                alt="RoboNav"
+                class="proj-related-card__img"
+                loading="lazy"
+              />
+              <div class="proj-related-card__body">
+                <div class="proj-related-card__tags">
+                  <span class="tag">Robotics</span><span class="tag">RL</span>
+                </div>
+                <h3 class="proj-related-card__title">RoboNav</h3>
+                <p class="proj-related-card__desc">Reinforcement learning for autonomous indoor robot navigation.</p>
+                <a href="projects.html" class="proj-related-card__link">View project &rarr;</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html#hero" class="navbar__logo footer__logo">
+            <span class="navbar__logo-k">K</span>mind
+          </a>
+          <p class="footer__tagline">Advancing ML research &amp; education</p>
+        </div>
+        <nav class="footer__nav">
+          <a href="index.html#about">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="blog.html">Blog</a>
+          <a href="research.html">Research</a>
+          <a href="roadmap.html">Roadmap</a>
+        </nav>
+      </div>
+      <div class="container footer__bottom">
+        <p>&copy; 2026 Kmind ML Club. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

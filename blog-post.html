@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding Transformers from Scratch — Kmind ML Club</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="blog-post.css" />
+  </head>
+  <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar__inner">
+        <a href="index.html#hero" class="navbar__logo">
+          <span class="navbar__logo-k">K</span>mind
+        </a>
+        <nav class="navbar__links" id="navLinks">
+          <a href="index.html#about">About</a>
+          <a href="index.html#focus">Focus Areas</a>
+          <a href="projects.html">Projects</a>
+          <a href="index.html#events">Events</a>
+          <a href="index.html#team">Team</a>
+          <a href="blog.html" class="navbar__link--active">Blog</a>
+          <a href="research.html">Research</a>
+        </nav>
+        <a href="index.html#join" class="btn btn--primary navbar__cta">Join Us</a>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== ARTICLE HEADER ===== -->
+      <header class="article-header">
+        <div class="container article-header__inner">
+          <div class="article-header__breadcrumb">
+            <a href="blog.html">Blog</a>
+            <span>/</span>
+            <span>NLP</span>
+          </div>
+          <div class="article-header__meta">
+            <span class="tag">NLP</span>
+            <span class="article-meta__sep">·</span>
+            <time class="article-meta__date" datetime="2026-04-14">April 14, 2026</time>
+            <span class="article-meta__sep">·</span>
+            <span class="article-meta__time">12 min read</span>
+          </div>
+          <h1 class="article-header__title">
+            Understanding Transformers from Scratch — A Visual Guide
+          </h1>
+          <p class="article-header__excerpt">
+            Attention is all you need — but understanding <em>why</em> is another matter.
+            We walk through every component of the Transformer architecture, from token
+            embeddings to multi-head attention, with diagrams and annotated PyTorch code.
+          </p>
+          <div class="article-header__author">
+            <img
+              src="https://i.pravatar.cc/56?img=68"
+              alt="Tahsin Hossain"
+              class="article-author__avatar"
+            />
+            <div class="article-author__info">
+              <p class="article-author__name">Tahsin Hossain</p>
+              <p class="article-author__role">NLP Researcher, Kmind</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== HERO IMAGE ===== -->
+      <div class="article-hero-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=600&fit=crop&auto=format&q=80"
+          alt="Transformer architecture visualisation"
+          class="article-hero-img"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- ===== ARTICLE BODY + SIDEBAR ===== -->
+      <div class="article-layout container">
+
+        <!-- Main article content -->
+        <article class="article-body">
+
+          <p class="article-lead">
+            When Vaswani et al. introduced the Transformer in 2017, they replaced
+            recurrent networks with a mechanism called <strong>self-attention</strong>.
+            Seven years later, every state-of-the-art language model — from BERT to
+            GPT-4 to Gemini — is built on this idea. But what actually happens inside
+            a Transformer? Let's find out.
+          </p>
+
+          <h2>1. The Big Picture</h2>
+          <p>
+            A Transformer takes a sequence of tokens as input (say, a sentence tokenised
+            into word-pieces) and produces a sequence of contextualised representations
+            as output. The encoder stack builds these representations; the decoder stack
+            consumes them to generate output tokens one at a time.
+          </p>
+          <p>
+            For a standard sequence-to-sequence task the architecture looks like this:
+          </p>
+
+          <div class="article-callout article-callout--info">
+            <strong>Tip:</strong> For classification tasks like BERT, you only need the
+            encoder. For text generation like GPT, you only need the decoder (with a
+            causal mask on self-attention).
+          </div>
+
+          <h2>2. Token Embeddings &amp; Positional Encoding</h2>
+          <p>
+            Before attention can run, raw token IDs must become dense vectors. An
+            embedding table maps each token to a vector of dimension <code>d_model</code>
+            (512 in the original paper, 768 in BERT-base).
+          </p>
+          <p>
+            Because attention is inherently position-agnostic, we add a positional
+            encoding to each embedding. The original paper uses fixed sinusoidal
+            functions:
+          </p>
+
+          <pre class="article-code"><code>import torch, math
+
+def positional_encoding(seq_len: int, d_model: int) -> torch.Tensor:
+    pe = torch.zeros(seq_len, d_model)
+    pos = torch.arange(seq_len).unsqueeze(1)          # (L, 1)
+    div = torch.exp(
+        torch.arange(0, d_model, 2) * (-math.log(10000.0) / d_model)
+    )
+    pe[:, 0::2] = torch.sin(pos * div)
+    pe[:, 1::2] = torch.cos(pos * div)
+    return pe  # (L, d_model)</code></pre>
+
+          <h2>3. Scaled Dot-Product Attention</h2>
+          <p>
+            The core operation. Given three matrices — Queries (<strong>Q</strong>),
+            Keys (<strong>K</strong>), and Values (<strong>V</strong>) — the attention
+            output is:
+          </p>
+
+          <div class="article-formula">
+            Attention(Q, K, V) = softmax( QK<sup>T</sup> / √d<sub>k</sub> ) · V
+          </div>
+
+          <p>
+            The scaling factor √d<sub>k</sub> prevents dot products from growing too
+            large, which would push softmax into regions of very small gradients.
+          </p>
+
+          <pre class="article-code"><code>def scaled_dot_product_attention(Q, K, V, mask=None):
+    d_k = Q.size(-1)
+    scores = (Q @ K.transpose(-2, -1)) / math.sqrt(d_k)  # (..., L, L)
+    if mask is not None:
+        scores = scores.masked_fill(mask == 0, float('-inf'))
+    attn = scores.softmax(dim=-1)                          # (..., L, L)
+    return attn @ V, attn                                  # output, weights</code></pre>
+
+          <h2>4. Multi-Head Attention</h2>
+          <p>
+            Instead of running one attention function with <code>d_model</code>-dimensional
+            queries/keys/values, we project to <em>h</em> lower-dimensional subspaces,
+            run attention in parallel, then concatenate and project back. This lets
+            different heads attend to different positions and relationship types
+            simultaneously.
+          </p>
+
+          <pre class="article-code"><code>import torch.nn as nn
+
+class MultiHeadAttention(nn.Module):
+    def __init__(self, d_model: int, num_heads: int):
+        super().__init__()
+        assert d_model % num_heads == 0
+        self.h = num_heads
+        self.d_k = d_model // num_heads
+        self.W_q = nn.Linear(d_model, d_model)
+        self.W_k = nn.Linear(d_model, d_model)
+        self.W_v = nn.Linear(d_model, d_model)
+        self.W_o = nn.Linear(d_model, d_model)
+
+    def forward(self, Q, K, V, mask=None):
+        B, L, _ = Q.shape
+        # Project & split into heads
+        Q = self.W_q(Q).view(B, L, self.h, self.d_k).transpose(1, 2)
+        K = self.W_k(K).view(B, -1, self.h, self.d_k).transpose(1, 2)
+        V = self.W_v(V).view(B, -1, self.h, self.d_k).transpose(1, 2)
+        # Attend
+        out, _ = scaled_dot_product_attention(Q, K, V, mask)
+        # Concat & project
+        out = out.transpose(1, 2).contiguous().view(B, L, -1)
+        return self.W_o(out)</code></pre>
+
+          <h2>5. Feed-Forward Sub-Layer</h2>
+          <p>
+            After the attention sub-layer, each position independently passes through
+            a two-layer MLP with a ReLU (or GELU in modern variants). The hidden
+            dimension is typically 4× the model dimension:
+          </p>
+
+          <pre class="article-code"><code>class FeedForward(nn.Module):
+    def __init__(self, d_model: int, d_ff: int = 2048):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(d_model, d_ff),
+            nn.GELU(),
+            nn.Linear(d_ff, d_model),
+        )
+
+    def forward(self, x):
+        return self.net(x)</code></pre>
+
+          <h2>6. Residuals &amp; Layer Norm</h2>
+          <p>
+            Each sub-layer is wrapped with a residual connection followed by layer
+            normalisation. This makes training deep networks much more stable:
+          </p>
+
+          <div class="article-callout article-callout--code-note">
+            <code>output = LayerNorm(x + SubLayer(x))</code>
+          </div>
+
+          <p>
+            In <em>pre-norm</em> variants (used in most modern LLMs), LayerNorm is
+            applied <em>before</em> the sub-layer instead. This further improves
+            training stability at scale.
+          </p>
+
+          <h2>7. Putting It All Together</h2>
+          <p>
+            A single Transformer encoder block stacks multi-head attention and
+            feed-forward sub-layers:
+          </p>
+
+          <pre class="article-code"><code>class EncoderBlock(nn.Module):
+    def __init__(self, d_model, num_heads, d_ff, dropout=0.1):
+        super().__init__()
+        self.attn  = MultiHeadAttention(d_model, num_heads)
+        self.ff    = FeedForward(d_model, d_ff)
+        self.norm1 = nn.LayerNorm(d_model)
+        self.norm2 = nn.LayerNorm(d_model)
+        self.drop  = nn.Dropout(dropout)
+
+    def forward(self, x, mask=None):
+        # Self-attention + residual
+        x = self.norm1(x + self.drop(self.attn(x, x, x, mask)))
+        # Feed-forward + residual
+        x = self.norm2(x + self.drop(self.ff(x)))
+        return x</code></pre>
+
+          <h2>Key Takeaways</h2>
+          <ul class="article-list">
+            <li>Transformers replace recurrence with <strong>self-attention</strong>, enabling full parallelisation during training.</li>
+            <li>Positional encodings are necessary because attention itself is order-agnostic.</li>
+            <li>Multi-head attention allows the model to attend to different representation subspaces simultaneously.</li>
+            <li>Residual connections and layer normalisation are crucial for training stability.</li>
+            <li>Modern LLMs use decoder-only (GPT-style) Transformers with causal masking.</li>
+          </ul>
+
+          <div class="article-callout article-callout--tip">
+            <strong>Next steps:</strong> Try implementing a tiny Transformer language model
+            from scratch — Andrej Karpathy's
+            <a href="#" class="article-inline-link">minGPT</a> is an excellent reference.
+            Then check out our
+            <a href="roadmap.html" class="article-inline-link">NLP Roadmap</a>
+            for a structured path to deeper expertise.
+          </div>
+
+        </article>
+
+        <!-- Table of contents sidebar -->
+        <aside class="article-sidebar">
+
+          <div class="article-toc">
+            <h3 class="article-toc__title">Contents</h3>
+            <ol class="article-toc__list">
+              <li><a href="#" class="article-toc__link">1. The Big Picture</a></li>
+              <li><a href="#" class="article-toc__link">2. Token Embeddings</a></li>
+              <li><a href="#" class="article-toc__link">3. Scaled Dot-Product Attention</a></li>
+              <li><a href="#" class="article-toc__link">4. Multi-Head Attention</a></li>
+              <li><a href="#" class="article-toc__link">5. Feed-Forward Sub-Layer</a></li>
+              <li><a href="#" class="article-toc__link">6. Residuals &amp; Layer Norm</a></li>
+              <li><a href="#" class="article-toc__link">7. Putting It All Together</a></li>
+            </ol>
+          </div>
+
+          <div class="article-sidebar-card">
+            <h3 class="article-sidebar-card__title">About the Author</h3>
+            <div class="article-sidebar-author">
+              <img src="https://i.pravatar.cc/56?img=68" alt="Tahsin Hossain" class="article-sidebar-author__avatar" />
+              <p class="article-sidebar-author__name">Tahsin Hossain</p>
+              <p class="article-sidebar-author__bio">
+                NLP researcher at Kmind. Interested in low-resource language models,
+                Bengali NLP, and efficient Transformers.
+              </p>
+            </div>
+          </div>
+
+          <div class="article-sidebar-card">
+            <h3 class="article-sidebar-card__title">Related</h3>
+            <div class="article-related-links">
+              <a href="research.html" class="article-related-link">
+                <span class="article-related-link__label">Paper</span>
+                BanglaQA: A Large-Scale QA Benchmark for Bengali
+              </a>
+              <a href="roadmap.html" class="article-related-link">
+                <span class="article-related-link__label">Roadmap</span>
+                NLP Learning Track
+              </a>
+              <a href="blog.html" class="article-related-link">
+                <span class="article-related-link__label">Blog</span>
+                Fine-Tuning LLMs on Low-Resource Languages
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div><!-- /article-layout -->
+
+      <!-- ===== MORE POSTS ===== -->
+      <section class="more-posts">
+        <div class="container">
+          <h2 class="more-posts__title">More from the Blog</h2>
+          <div class="more-posts-grid">
+
+            <article class="more-post-card">
+              <img
+                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=480&h=270&fit=crop&auto=format&q=80"
+                alt="RL post"
+                class="more-post-card__img"
+                loading="lazy"
+              />
+              <div class="more-post-card__body">
+                <div class="more-post-card__meta">
+                  <span class="tag">Reinforcement Learning</span>
+                  <span class="more-post-card__date">March 28, 2026</span>
+                </div>
+                <h3 class="more-post-card__title">PPO Explained: Proximal Policy Optimisation from First Principles</h3>
+                <a href="blog.html" class="more-post-card__link">Read more &rarr;</a>
+              </div>
+            </article>
+
+            <article class="more-post-card">
+              <img
+                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=480&h=270&fit=crop&auto=format&q=80"
+                alt="MLOps post"
+                class="more-post-card__img"
+                loading="lazy"
+              />
+              <div class="more-post-card__body">
+                <div class="more-post-card__meta">
+                  <span class="tag">MLOps</span>
+                  <span class="more-post-card__date">March 10, 2026</span>
+                </div>
+                <h3 class="more-post-card__title">Building a Production ML Pipeline with DVC and GitHub Actions</h3>
+                <a href="blog.html" class="more-post-card__link">Read more &rarr;</a>
+              </div>
+            </article>
+
+            <article class="more-post-card">
+              <img
+                src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=480&h=270&fit=crop&auto=format&q=80"
+                alt="CV post"
+                class="more-post-card__img"
+                loading="lazy"
+              />
+              <div class="more-post-card__body">
+                <div class="more-post-card__meta">
+                  <span class="tag">Computer Vision</span>
+                  <span class="more-post-card__date">February 22, 2026</span>
+                </div>
+                <h3 class="more-post-card__title">YOLOv8 vs RT-DETR: A Practical Speed-Accuracy Comparison</h3>
+                <a href="blog.html" class="more-post-card__link">Read more &rarr;</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html#hero" class="navbar__logo footer__logo">
+            <span class="navbar__logo-k">K</span>mind
+          </a>
+          <p class="footer__tagline">Advancing ML research &amp; education</p>
+        </div>
+        <nav class="footer__nav">
+          <a href="index.html#about">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="blog.html">Blog</a>
+          <a href="research.html">Research</a>
+          <a href="roadmap.html">Roadmap</a>
+        </nav>
+      </div>
+      <div class="container footer__bottom">
+        <p>&copy; 2026 Kmind ML Club. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
