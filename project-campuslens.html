@@ -80,11 +80,11 @@
         <div class="container">
           <div class="proj-metrics">
             <div class="proj-metric">
-              <span class="proj-metric__val">94.3%</span>
+              <span class="proj-metric__val">~91%</span>
               <span class="proj-metric__label">mAP@0.5</span>
             </div>
             <div class="proj-metric">
-              <span class="proj-metric__val">28 fps</span>
+              <span class="proj-metric__val">~25 fps</span>
               <span class="proj-metric__label">Edge Inference</span>
             </div>
             <div class="proj-metric">
@@ -93,10 +93,10 @@
             </div>
             <div class="proj-metric">
               <span class="proj-metric__val">2</span>
-              <span class="proj-metric__label">Deployed Gates</span>
+              <span class="proj-metric__label">Campus Gates</span>
             </div>
             <div class="proj-metric">
-              <span class="proj-metric__val">ICCV '25</span>
+              <span class="proj-metric__val">ICIEV '24</span>
               <span class="proj-metric__label">Published At</span>
             </div>
           </div>
@@ -114,17 +114,17 @@
             <div class="proj-block">
               <h2 class="proj-block__title">Overview</h2>
               <p class="proj-block__text">
-                CampusLens started as an effort to address real safety and logistics
-                challenges on our university campus. The system leverages an anchor-free
-                multi-object tracking (MOT) pipeline optimised for resource-constrained
-                edge devices — Raspberry Pi 5 and NVIDIA Jetson Nano — without
-                sacrificing accuracy.
+                CampusLens came out of a simple frustration — our campus has cameras
+                but no one actually processes the footage in real time. We wanted to
+                build something that could run on cheap hardware (Jetson Nano or
+                even a Raspberry Pi 5) and still give useful detections.
               </p>
               <p class="proj-block__text">
-                The backbone is a custom-trained YOLOv8n model fine-tuned on a
-                dataset of 12,000 images collected across three Bangladeshi university
-                campuses, covering pedestrians, rickshaws, motorcycles, bicycles, and
-                campus-specific objects such as guard booths and bulletin boards.
+                We collected around 12,000 images from a few university campuses and
+                fine-tuned YOLOv8n to handle local stuff like rickshaws, CNGs, and
+                the very specific chaos of a Bangladeshi campus gate. Getting it to
+                actually run at a decent framerate on the Jetson took most of the
+                semester.
               </p>
             </div>
 
@@ -248,7 +248,7 @@
               <div class="proj-paper-ref">
                 <div class="proj-paper-ref__accent"></div>
                 <div class="proj-paper-ref__inner">
-                  <p class="proj-paper-ref__venue">ICCV 2025</p>
+                  <p class="proj-paper-ref__venue">ICIEV 2024</p>
                   <p class="proj-paper-ref__title">
                     CampusEye: Anchor-Free Multi-Object Tracking for
                     Resource-Constrained Edge Deployment
@@ -278,7 +278,7 @@
                 <dt>Started</dt>
                 <dd>August 2024</dd>
                 <dt>Venue</dt>
-                <dd>ICCV 2025</dd>
+                <dd>ICIEV 2024</dd>
               </dl>
             </div>
 

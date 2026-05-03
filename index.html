@@ -41,27 +41,84 @@
       <!-- ===== HERO ===== -->
       <section class="hero" id="hero">
 
-        <!-- Canvas for animated neural network background -->
         <canvas class="hero__canvas" id="neuralCanvas"></canvas>
 
-        <div class="container hero__content">
-          <p class="hero__eyebrow">Welcome to</p>
-          <h1 class="hero__title">
-            <span class="hero__title-k">K</span>mind
-          </h1>
-          <p class="hero__tagline">
-            Building the future with Machine Learning —<br />
-            one model at a time.
-          </p>
-          <div class="hero__actions">
-            <a href="#about" class="btn btn--primary">Explore the Club</a>
-            <a href="#projects" class="btn btn--ghost">See Our Work</a>
+        <div class="hero__inner">
+          <div class="container">
+            <div class="hero__layout">
+
+              <!-- Left: editorial text -->
+              <div class="hero__content">
+                <p class="hero__eyebrow">
+                  <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+                  Est. 2023 &middot; Student ML Research Club
+                </p>
+                <h1 class="hero__title">
+                  We build<br>
+                  <span class="hero__title-gradient">intelligent</span><br>
+                  systems.
+                </h1>
+                <p class="hero__tagline">
+                  A student club where curiosity meets computation &mdash;
+                  we read papers, break models, and occasionally ship
+                  something that actually works.
+                </p>
+                <div class="hero__actions">
+                  <a href="#about" class="btn btn--primary">Explore the Club</a>
+                  <a href="#projects" class="btn btn--ghost">See Our Work</a>
+                </div>
+              </div>
+
+              <!-- Right: floating visual panel -->
+              <div class="hero__visual" aria-hidden="true">
+                <div class="hero__orb"></div>
+                <div class="hero__float-card hero__float-card--1">
+                  <span class="hero__float-num">65+</span>
+                  <span class="hero__float-label">Members</span>
+                </div>
+                <div class="hero__float-card hero__float-card--2">
+                  <span class="hero__float-num">14+</span>
+                  <span class="hero__float-label">Projects</span>
+                </div>
+                <div class="hero__float-card hero__float-card--3">
+                  <span class="hero__float-num">6</span>
+                  <span class="hero__float-label">Papers</span>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 
-        <div class="hero__scroll-hint" aria-hidden="true">
-          <span>Scroll</span>
-          <div class="hero__scroll-line"></div>
+        <!-- Marquee strip -->
+        <div class="hero__marquee" aria-hidden="true">
+          <div class="hero__marquee-track">
+            <span>Computer Vision</span><span class="hero__marquee-sep">&middot;</span>
+            <span>NLP</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Reinforcement Learning</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Diffusion Models</span><span class="hero__marquee-sep">&middot;</span>
+            <span>LLMs</span><span class="hero__marquee-sep">&middot;</span>
+            <span>MLOps</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Paper Reading</span><span class="hero__marquee-sep">&middot;</span>
+            <span>AI Research</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Hackathons</span><span class="hero__marquee-sep">&middot;</span>
+            <span>PyTorch</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Transformers</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Deep Learning</span><span class="hero__marquee-sep">&middot;</span>
+            <!-- duplicate for seamless loop -->
+            <span>Computer Vision</span><span class="hero__marquee-sep">&middot;</span>
+            <span>NLP</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Reinforcement Learning</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Diffusion Models</span><span class="hero__marquee-sep">&middot;</span>
+            <span>LLMs</span><span class="hero__marquee-sep">&middot;</span>
+            <span>MLOps</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Paper Reading</span><span class="hero__marquee-sep">&middot;</span>
+            <span>AI Research</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Hackathons</span><span class="hero__marquee-sep">&middot;</span>
+            <span>PyTorch</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Transformers</span><span class="hero__marquee-sep">&middot;</span>
+            <span>Deep Learning</span><span class="hero__marquee-sep">&middot;</span>
+          </div>
         </div>
 
       </section>
@@ -70,52 +127,52 @@
       <section class="about" id="about">
         <div class="container">
 
-          <div class="section-header">
+          <div class="about__header" data-reveal>
             <p class="section-eyebrow">Who we are</p>
-            <h2 class="section-title">About Kmind</h2>
+            <h2 class="about__headline">
+              A club of builders,<br>
+              <em>curious minds</em>, and<br>
+              paper readers.
+            </h2>
           </div>
 
           <div class="about__grid">
 
-            <!-- Left: text -->
-            <div class="about__text">
+            <div class="about__text" data-reveal data-reveal-delay="100">
               <p class="about__lead">
-                Kmind is a student-driven machine learning club dedicated to
-                exploring, building, and sharing cutting-edge AI research and
-                projects.
+                Kmind is where students who care about ML come together
+                to actually do the work &mdash; not just talk about it.
               </p>
               <p class="about__body">
-                Founded by a group of curious engineers and researchers, we bring
-                together students from all disciplines who share a passion for
-                intelligent systems. Whether you are just starting out or have
-                years of experience, Kmind is your community to grow, collaborate,
-                and push boundaries.
+                We started as a small reading group that got too big for one room.
+                Now we have members from CSE, EEE, and a few other departments who
+                just wandered in and never left. No strict entry requirements &mdash;
+                if you're curious about ML, you're welcome here.
               </p>
               <p class="about__body">
-                From weekly reading groups and hands-on workshops to
-                inter-university hackathons, we create opportunities for every
-                member to learn deeply and build meaningfully.
+                We do weekly paper readings, hands-on coding sessions, and
+                occasional hackathons. Some of our projects have turned into
+                actual research; most are just cool things we wanted to build.
               </p>
               <a href="#join" class="btn btn--primary about__cta">Become a Member</a>
             </div>
 
-            <!-- Right: stats -->
-            <div class="about__stats">
+            <div class="about__stats" data-reveal data-reveal-delay="200">
               <div class="stat-card">
-                <span class="stat-card__number">120<span class="stat-card__plus">+</span></span>
+                <span class="stat-card__number">65<span class="stat-card__plus">+</span></span>
                 <span class="stat-card__label">Active Members</span>
               </div>
               <div class="stat-card">
-                <span class="stat-card__number">34<span class="stat-card__plus">+</span></span>
+                <span class="stat-card__number">14<span class="stat-card__plus">+</span></span>
                 <span class="stat-card__label">Projects Shipped</span>
               </div>
               <div class="stat-card">
-                <span class="stat-card__number">50<span class="stat-card__plus">+</span></span>
+                <span class="stat-card__number">20<span class="stat-card__plus">+</span></span>
                 <span class="stat-card__label">Events Hosted</span>
               </div>
               <div class="stat-card">
-                <span class="stat-card__number">8<span class="stat-card__plus">+</span></span>
-                <span class="stat-card__label">Research Papers</span>
+                <span class="stat-card__number">6</span>
+                <span class="stat-card__label">Papers &amp; Preprints</span>
               </div>
             </div>
 
@@ -128,65 +185,83 @@
       <section class="focus" id="focus">
         <div class="container">
 
-          <div class="section-header">
+          <div class="section-header" data-reveal>
             <p class="section-eyebrow">What we explore</p>
             <h2 class="section-title">Focus Areas</h2>
           </div>
 
-          <div class="focus__grid">
+          <div class="focus__list">
 
-            <div class="focus-card">
-              <div class="focus-card__icon">&#128065;</div>
-              <h3 class="focus-card__title">Computer Vision</h3>
-              <p class="focus-card__desc">
-                Image classification, object detection, segmentation, and
-                generative image models using CNNs, ViTs, and diffusion.
-              </p>
+            <div class="focus-item" data-reveal data-reveal-delay="0">
+              <span class="focus-item__num">01</span>
+              <div class="focus-item__body">
+                <h3 class="focus-item__title">Computer Vision</h3>
+                <p class="focus-item__desc">
+                  Image classification, object detection, segmentation, and
+                  generative image models using CNNs, ViTs, and diffusion.
+                </p>
+              </div>
+              <span class="focus-item__icon" aria-hidden="true">&#128065;</span>
             </div>
 
-            <div class="focus-card">
-              <div class="focus-card__icon">&#128172;</div>
-              <h3 class="focus-card__title">Natural Language Processing</h3>
-              <p class="focus-card__desc">
-                Transformers, LLMs, text generation, sentiment analysis,
-                and building language-aware applications.
-              </p>
+            <div class="focus-item" data-reveal data-reveal-delay="60">
+              <span class="focus-item__num">02</span>
+              <div class="focus-item__body">
+                <h3 class="focus-item__title">Natural Language Processing</h3>
+                <p class="focus-item__desc">
+                  Transformers, LLMs, text generation, sentiment analysis,
+                  and building language-aware applications.
+                </p>
+              </div>
+              <span class="focus-item__icon" aria-hidden="true">&#128172;</span>
             </div>
 
-            <div class="focus-card">
-              <div class="focus-card__icon">&#127918;</div>
-              <h3 class="focus-card__title">Reinforcement Learning</h3>
-              <p class="focus-card__desc">
-                Policy gradients, Q-learning, multi-agent systems, and
-                applying RL to games, robotics, and optimization.
-              </p>
+            <div class="focus-item" data-reveal data-reveal-delay="120">
+              <span class="focus-item__num">03</span>
+              <div class="focus-item__body">
+                <h3 class="focus-item__title">Reinforcement Learning</h3>
+                <p class="focus-item__desc">
+                  Policy gradients, Q-learning, multi-agent systems, and
+                  applying RL to games, robotics, and optimization.
+                </p>
+              </div>
+              <span class="focus-item__icon" aria-hidden="true">&#127918;</span>
             </div>
 
-            <div class="focus-card">
-              <div class="focus-card__icon">&#128200;</div>
-              <h3 class="focus-card__title">Data Science & Analytics</h3>
-              <p class="focus-card__desc">
-                Feature engineering, statistical modelling, visualization,
-                and turning raw data into actionable insights.
-              </p>
+            <div class="focus-item" data-reveal data-reveal-delay="180">
+              <span class="focus-item__num">04</span>
+              <div class="focus-item__body">
+                <h3 class="focus-item__title">Data Science &amp; Analytics</h3>
+                <p class="focus-item__desc">
+                  Feature engineering, statistical modelling, visualization,
+                  and turning raw data into actionable insights.
+                </p>
+              </div>
+              <span class="focus-item__icon" aria-hidden="true">&#128200;</span>
             </div>
 
-            <div class="focus-card">
-              <div class="focus-card__icon">&#129302;</div>
-              <h3 class="focus-card__title">MLOps & Deployment</h3>
-              <p class="focus-card__desc">
-                Model serving, pipelines, experiment tracking, and taking
-                ML projects from notebook to production.
-              </p>
+            <div class="focus-item" data-reveal data-reveal-delay="240">
+              <span class="focus-item__num">05</span>
+              <div class="focus-item__body">
+                <h3 class="focus-item__title">MLOps &amp; Deployment</h3>
+                <p class="focus-item__desc">
+                  Model serving, pipelines, experiment tracking, and taking
+                  ML projects from notebook to production.
+                </p>
+              </div>
+              <span class="focus-item__icon" aria-hidden="true">&#129302;</span>
             </div>
 
-            <div class="focus-card">
-              <div class="focus-card__icon">&#128300;</div>
-              <h3 class="focus-card__title">AI Research</h3>
-              <p class="focus-card__desc">
-                Reading groups, paper reproductions, and original research
-                targeting top ML conferences and journals.
-              </p>
+            <div class="focus-item" data-reveal data-reveal-delay="300">
+              <span class="focus-item__num">06</span>
+              <div class="focus-item__body">
+                <h3 class="focus-item__title">AI Research</h3>
+                <p class="focus-item__desc">
+                  Reading groups, paper reproductions, and original research
+                  targeting top ML conferences and journals.
+                </p>
+              </div>
+              <span class="focus-item__icon" aria-hidden="true">&#128300;</span>
             </div>
 
           </div>
@@ -197,16 +272,16 @@
       <section class="projects" id="projects">
         <div class="container">
 
-          <div class="section-header">
+          <div class="section-header" data-reveal>
             <p class="section-eyebrow">What we build</p>
             <h2 class="section-title">Projects</h2>
           </div>
 
           <div class="projects__grid">
 
-            <article class="project-card">
+            <article class="project-card project-card--featured" data-reveal>
               <div class="project-card__img-wrap">
-                <img class="project-card__img" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=338&fit=crop&auto=format&q=80" alt="CampusLens – computer vision" loading="lazy">
+                <img class="project-card__img" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=500&fit=crop&auto=format&q=80" alt="CampusLens – computer vision" loading="lazy">
               </div>
               <div class="project-card__body">
                 <div class="project-card__tags">
@@ -222,7 +297,7 @@
               </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-reveal data-reveal-delay="60">
               <div class="project-card__img-wrap">
                 <img class="project-card__img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=338&fit=crop&auto=format&q=80" alt="StudyBot – LLM study assistant" loading="lazy">
               </div>
@@ -240,7 +315,7 @@
               </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-reveal data-reveal-delay="120">
               <div class="project-card__img-wrap">
                 <img class="project-card__img" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&h=338&fit=crop&auto=format&q=80" alt="AgentRacer – reinforcement learning" loading="lazy">
               </div>
@@ -258,7 +333,7 @@
               </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-reveal data-reveal-delay="60">
               <div class="project-card__img-wrap">
                 <img class="project-card__img" src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=600&h=338&fit=crop&auto=format&q=80" alt="ArtForge – generative art diffusion model" loading="lazy">
               </div>
@@ -276,7 +351,7 @@
               </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-reveal data-reveal-delay="120">
               <div class="project-card__img-wrap">
                 <img class="project-card__img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=338&fit=crop&auto=format&q=80" alt="EnergyPulse – data science forecasting" loading="lazy">
               </div>
@@ -294,7 +369,7 @@
               </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-reveal data-reveal-delay="180">
               <div class="project-card__img-wrap">
                 <img class="project-card__img" src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=600&h=338&fit=crop&auto=format&q=80" alt="BanglaQA – Bangla NLP" loading="lazy">
               </div>
@@ -320,14 +395,14 @@
       <section class="events" id="events">
         <div class="container">
 
-          <div class="section-header">
+          <div class="section-header" data-reveal>
             <p class="section-eyebrow">What's coming up</p>
             <h2 class="section-title">Events</h2>
           </div>
 
           <div class="events__timeline">
 
-            <div class="event-card event-card--upcoming">
+            <div class="event-card event-card--upcoming" data-reveal data-reveal-delay="0">
               <div class="event-card__date">
                 <span class="event-card__day">28</span>
                 <span class="event-card__month">Apr</span>
@@ -341,12 +416,12 @@
                 </p>
                 <div class="event-card__meta">
                   <span>&#128205; Room 301, CS Building</span>
-                  <span>&#128336; 3:00 PM – 6:00 PM</span>
+                  <span>&#128336; 3:00 PM &ndash; 6:00 PM</span>
                 </div>
               </div>
             </div>
 
-            <div class="event-card event-card--upcoming">
+            <div class="event-card event-card--upcoming" data-reveal data-reveal-delay="80">
               <div class="event-card__date">
                 <span class="event-card__day">10</span>
                 <span class="event-card__month">May</span>
@@ -365,7 +440,7 @@
               </div>
             </div>
 
-            <div class="event-card event-card--upcoming">
+            <div class="event-card event-card--upcoming" data-reveal data-reveal-delay="160">
               <div class="event-card__date">
                 <span class="event-card__day">20</span>
                 <span class="event-card__month">May</span>
@@ -374,17 +449,17 @@
                 <span class="event-card__badge event-card__badge--upcoming">Upcoming</span>
                 <h3 class="event-card__title">Research Paper Reading Group</h3>
                 <p class="event-card__desc">
-                  Monthly paper club — this session covers "Attention Is All
+                  Monthly paper club &mdash; this session covers "Attention Is All
                   You Need" and its influence on modern LLM architectures.
                 </p>
                 <div class="event-card__meta">
                   <span>&#128205; Online (Google Meet)</span>
-                  <span>&#128336; 5:00 PM – 7:00 PM</span>
+                  <span>&#128336; 5:00 PM &ndash; 7:00 PM</span>
                 </div>
               </div>
             </div>
 
-            <div class="event-card event-card--past">
+            <div class="event-card event-card--past" data-reveal data-reveal-delay="240">
               <div class="event-card__date">
                 <span class="event-card__day">15</span>
                 <span class="event-card__month">Mar</span>
@@ -411,14 +486,14 @@
       <section class="team" id="team">
         <div class="container">
 
-          <div class="section-header">
+          <div class="section-header" data-reveal>
             <p class="section-eyebrow">The people behind it</p>
             <h2 class="section-title">Our Team</h2>
           </div>
 
           <div class="team__grid">
 
-            <div class="team-card">
+            <div class="team-card" data-reveal data-reveal-delay="0">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=53" alt="Arif Rahman">
               <h3 class="team-card__name">Arif Rahman</h3>
               <p class="team-card__role">President</p>
@@ -428,7 +503,7 @@
               </div>
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-reveal data-reveal-delay="60">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=47" alt="Nadia Islam">
               <h3 class="team-card__name">Nadia Islam</h3>
               <p class="team-card__role">Vice President</p>
@@ -438,7 +513,7 @@
               </div>
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-reveal data-reveal-delay="120">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=68" alt="Tahsin Hossain">
               <h3 class="team-card__name">Tahsin Hossain</h3>
               <p class="team-card__role">Head of Research</p>
@@ -448,7 +523,7 @@
               </div>
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-reveal data-reveal-delay="180">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=44" alt="Lamia Chowdhury">
               <h3 class="team-card__name">Lamia Chowdhury</h3>
               <p class="team-card__role">Head of Projects</p>
@@ -458,7 +533,7 @@
               </div>
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-reveal data-reveal-delay="0">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=57" alt="Raihan Kabir">
               <h3 class="team-card__name">Raihan Kabir</h3>
               <p class="team-card__role">Head of Events</p>
@@ -468,7 +543,7 @@
               </div>
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-reveal data-reveal-delay="60">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=40" alt="Sadia Akter">
               <h3 class="team-card__name">Sadia Akter</h3>
               <p class="team-card__role">Head of Design</p>
@@ -478,7 +553,7 @@
               </div>
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-reveal data-reveal-delay="120">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=65" alt="Mehedi Hasan">
               <h3 class="team-card__name">Mehedi Hasan</h3>
               <p class="team-card__role">Core Developer</p>
@@ -488,7 +563,7 @@
               </div>
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-reveal data-reveal-delay="180">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=35" alt="Fatema Begum">
               <h3 class="team-card__name">Fatema Begum</h3>
               <p class="team-card__role">Core Researcher</p>
@@ -506,7 +581,7 @@
       <section class="join" id="join">
         <div class="container">
 
-          <div class="section-header">
+          <div class="section-header" data-reveal>
             <p class="section-eyebrow">Be part of something</p>
             <h2 class="section-title">Join Kmind</h2>
             <p class="section-subtitle">
@@ -515,7 +590,7 @@
             </p>
           </div>
 
-          <form class="join__form" id="joinForm" novalidate>
+          <form class="join__form" id="joinForm" novalidate data-reveal>
 
             <div class="form-row">
               <div class="form-group">
@@ -591,7 +666,7 @@
             <button type="submit" class="btn btn--primary join__submit">Submit Application</button>
 
             <p class="join__note">
-              We review applications weekly. Expect a reply within 5–7 days.
+              We review applications weekly. Expect a reply within 5&ndash;7 days.
             </p>
 
           </form>

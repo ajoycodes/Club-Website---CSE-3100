@@ -148,7 +148,40 @@
 })();
 
 
-/* ── 4. JOIN FORM ── */
+/* ── 4. SCROLL REVEAL ── */
+(function () {
+  const els = document.querySelectorAll('[data-reveal]');
+  if (!els.length) return;
+
+  // Apply stagger delay from data attribute
+  els.forEach(el => {
+    const delay = el.getAttribute('data-reveal-delay');
+    if (delay) el.style.setProperty('--reveal-delay', delay + 'ms');
+  });
+
+  // Graceful fallback if IntersectionObserver unavailable
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  els.forEach(el => observer.observe(el));
+})();
+
+
+/* ── 5. JOIN FORM ── */
 (function () {
   const form = document.getElementById('joinForm');
   if (!form) return;

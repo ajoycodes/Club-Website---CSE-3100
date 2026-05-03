@@ -64,7 +64,7 @@
             />
             <div class="article-author__info">
               <p class="article-author__name">Tahsin Hossain</p>
-              <p class="article-author__role">NLP Researcher, Kmind</p>
+              <p class="article-author__role">3rd Year CSE, Kmind NLP team</p>
             </div>
           </div>
         </div>
@@ -87,40 +87,41 @@
         <article class="article-body">
 
           <p class="article-lead">
-            When Vaswani et al. introduced the Transformer in 2017, they replaced
-            recurrent networks with a mechanism called <strong>self-attention</strong>.
-            Seven years later, every state-of-the-art language model — from BERT to
-            GPT-4 to Gemini — is built on this idea. But what actually happens inside
-            a Transformer? Let's find out.
+            I spent way too long being confused by Transformers before things finally
+            clicked. The original "Attention Is All You Need" paper is dense and
+            assumes a lot. This is my attempt to explain it the way I wish someone had
+            explained it to me — step by step, with actual runnable code.
           </p>
 
-          <h2>1. The Big Picture</h2>
+          <h2>1. What is a Transformer, actually?</h2>
           <p>
-            A Transformer takes a sequence of tokens as input (say, a sentence tokenised
-            into word-pieces) and produces a sequence of contextualised representations
-            as output. The encoder stack builds these representations; the decoder stack
-            consumes them to generate output tokens one at a time.
+            At the core, a Transformer takes a sequence of tokens (words, subwords, whatever
+            you split your text into) and outputs a new sequence of vectors where each
+            vector has "looked at" every other token. That's it. The magic is in <em>how</em>
+            it does the looking — that's self-attention.
           </p>
           <p>
-            For a standard sequence-to-sequence task the architecture looks like this:
+            For translation or summarisation you need both an encoder (reads input) and
+            a decoder (generates output). For something like BERT you only need the encoder.
+            For GPT-style generation, just the decoder.
           </p>
 
           <div class="article-callout article-callout--info">
-            <strong>Tip:</strong> For classification tasks like BERT, you only need the
-            encoder. For text generation like GPT, you only need the decoder (with a
-            causal mask on self-attention).
+            <strong>Quick note:</strong> If you've only seen GPT-style models, you might
+            think "Transformer = decoder only". That's just one variant. The original paper
+            uses both encoder and decoder stacked together.
           </div>
 
-          <h2>2. Token Embeddings &amp; Positional Encoding</h2>
+          <h2>2. Turning Words into Vectors</h2>
           <p>
-            Before attention can run, raw token IDs must become dense vectors. An
-            embedding table maps each token to a vector of dimension <code>d_model</code>
-            (512 in the original paper, 768 in BERT-base).
+            Before any attention happens, we need to convert token IDs into vectors.
+            An embedding table does this — think of it as a lookup: token 42 maps to
+            a vector of <code>d_model</code> numbers (512 in the original paper).
           </p>
           <p>
-            Because attention is inherently position-agnostic, we add a positional
-            encoding to each embedding. The original paper uses fixed sinusoidal
-            functions:
+            Here's the tricky bit — attention itself has no idea about word order. So we
+            need to manually inject position information. The original paper adds a
+            fixed sinusoidal signal to each embedding:
           </p>
 
           <pre class="article-code"><code>import torch, math
@@ -135,11 +136,11 @@ def positional_encoding(seq_len: int, d_model: int) -> torch.Tensor:
     pe[:, 1::2] = torch.cos(pos * div)
     return pe  # (L, d_model)</code></pre>
 
-          <h2>3. Scaled Dot-Product Attention</h2>
+          <h2>3. The Actual Attention Mechanism</h2>
           <p>
-            The core operation. Given three matrices — Queries (<strong>Q</strong>),
-            Keys (<strong>K</strong>), and Values (<strong>V</strong>) — the attention
-            output is:
+            OK so here's the part everyone talks about. You have three matrices — Queries
+            (<strong>Q</strong>), Keys (<strong>K</strong>), and Values (<strong>V</strong>).
+            The formula is:
           </p>
 
           <div class="article-formula">
@@ -147,8 +148,10 @@ def positional_encoding(seq_len: int, d_model: int) -> torch.Tensor:
           </div>
 
           <p>
-            The scaling factor √d<sub>k</sub> prevents dot products from growing too
-            large, which would push softmax into regions of very small gradients.
+            The √d<sub>k</sub> scaling is easy to miss but important — without it, when
+            <code>d_k</code> is large, the dot products get huge and softmax basically
+            becomes a one-hot, which kills your gradients. I ignored this the first time
+            and got very confused about why training was going nowhere.
           </p>
 
           <pre class="article-code"><code>def scaled_dot_product_attention(Q, K, V, mask=None):
@@ -161,11 +164,11 @@ def positional_encoding(seq_len: int, d_model: int) -> torch.Tensor:
 
           <h2>4. Multi-Head Attention</h2>
           <p>
-            Instead of running one attention function with <code>d_model</code>-dimensional
-            queries/keys/values, we project to <em>h</em> lower-dimensional subspaces,
-            run attention in parallel, then concatenate and project back. This lets
-            different heads attend to different positions and relationship types
-            simultaneously.
+            Instead of doing attention once with big vectors, we split into <em>h</em>
+            smaller "heads", run attention independently in each, then glue the results
+            back together. The idea is that different heads can pick up different kinds
+            of relationships — one might focus on syntax, another on coreference, etc.
+            In practice it just tends to work better, so here we are.
           </p>
 
           <pre class="article-code"><code>import torch.nn as nn
@@ -193,11 +196,12 @@ class MultiHeadAttention(nn.Module):
         out = out.transpose(1, 2).contiguous().view(B, L, -1)
         return self.W_o(out)</code></pre>
 
-          <h2>5. Feed-Forward Sub-Layer</h2>
+          <h2>5. The Feed-Forward Part</h2>
           <p>
-            After the attention sub-layer, each position independently passes through
-            a two-layer MLP with a ReLU (or GELU in modern variants). The hidden
-            dimension is typically 4× the model dimension:
+            After attention, each token's vector goes through a small 2-layer MLP on its
+            own (no cross-token mixing here). Hidden size is typically 4x the model
+            dimension — so if d_model=512, the inner layer is 2048. Modern models
+            use GELU instead of ReLU, which seems to train slightly better:
           </p>
 
           <pre class="article-code"><code>class FeedForward(nn.Module):
@@ -212,10 +216,11 @@ class MultiHeadAttention(nn.Module):
     def forward(self, x):
         return self.net(x)</code></pre>
 
-          <h2>6. Residuals &amp; Layer Norm</h2>
+          <h2>6. Residuals and Layer Norm</h2>
           <p>
-            Each sub-layer is wrapped with a residual connection followed by layer
-            normalisation. This makes training deep networks much more stable:
+            Every sub-layer gets a residual connection (the input is added back to the
+            output) plus layer normalisation. This is what makes deep stacks trainable —
+            without it, gradients vanish quickly.
           </p>
 
           <div class="article-callout article-callout--code-note">
@@ -223,15 +228,16 @@ class MultiHeadAttention(nn.Module):
           </div>
 
           <p>
-            In <em>pre-norm</em> variants (used in most modern LLMs), LayerNorm is
-            applied <em>before</em> the sub-layer instead. This further improves
-            training stability at scale.
+            Worth knowing: most modern LLMs flip this to "pre-norm" where LayerNorm goes
+            <em>before</em> the sub-layer rather than after. Apparently it's more stable
+            at large scale, but the original paper does post-norm.
           </p>
 
-          <h2>7. Putting It All Together</h2>
+          <h2>7. Full Encoder Block</h2>
           <p>
-            A single Transformer encoder block stacks multi-head attention and
-            feed-forward sub-layers:
+            Stack attention + feed-forward together with the residuals and you get one
+            encoder block. A real model like BERT stacks 12 of these, GPT-3 uses 96.
+            Here's what a single block looks like in PyTorch:
           </p>
 
           <pre class="article-code"><code>class EncoderBlock(nn.Module):
@@ -250,22 +256,21 @@ class MultiHeadAttention(nn.Module):
         x = self.norm2(x + self.drop(self.ff(x)))
         return x</code></pre>
 
-          <h2>Key Takeaways</h2>
+          <h2>Quick summary</h2>
           <ul class="article-list">
-            <li>Transformers replace recurrence with <strong>self-attention</strong>, enabling full parallelisation during training.</li>
-            <li>Positional encodings are necessary because attention itself is order-agnostic.</li>
-            <li>Multi-head attention allows the model to attend to different representation subspaces simultaneously.</li>
-            <li>Residual connections and layer normalisation are crucial for training stability.</li>
-            <li>Modern LLMs use decoder-only (GPT-style) Transformers with causal masking.</li>
+            <li>Self-attention is what makes Transformers different — every token looks at every other token at once.</li>
+            <li>You need positional encodings because attention is order-blind by default.</li>
+            <li>Multi-head = run several attentions in parallel on smaller vectors, then combine.</li>
+            <li>Residual connections + LayerNorm are what stop the whole thing from exploding during training.</li>
+            <li>BERT = encoder only, GPT = decoder only, original Transformer = both.</li>
           </ul>
 
           <div class="article-callout article-callout--tip">
-            <strong>Next steps:</strong> Try implementing a tiny Transformer language model
-            from scratch — Andrej Karpathy's
-            <a href="#" class="article-inline-link">minGPT</a> is an excellent reference.
-            Then check out our
-            <a href="roadmap.html" class="article-inline-link">NLP Roadmap</a>
-            for a structured path to deeper expertise.
+            <strong>What to try next:</strong> Honestly, just implement it yourself. Andrej Karpathy's
+            <a href="#" class="article-inline-link">minGPT</a> repo is the best reference
+            I've found — it's small enough to actually read. Also check out our
+            <a href="roadmap.html" class="article-inline-link">NLP learning track</a>
+            if you want a more structured path.
           </div>
 
         </article>
@@ -292,8 +297,8 @@ class MultiHeadAttention(nn.Module):
               <img src="https://i.pravatar.cc/56?img=68" alt="Tahsin Hossain" class="article-sidebar-author__avatar" />
               <p class="article-sidebar-author__name">Tahsin Hossain</p>
               <p class="article-sidebar-author__bio">
-                NLP researcher at Kmind. Interested in low-resource language models,
-                Bengali NLP, and efficient Transformers.
+                3rd year CSE student. Currently obsessed with Bengali NLP and
+                trying to make sense of large language models.
               </p>
             </div>
           </div>
