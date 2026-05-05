@@ -188,6 +188,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
 }
 
+/* Section-level CTA row */
+.section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-10);
+}
+
 /* ============================================================
    4. SCROLL REVEAL
    ============================================================ */
@@ -788,31 +795,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: var(--space-5);
 }
 
-/* Featured card spans 2 columns, horizontal layout */
-.project-card--featured {
-  grid-column: span 2;
-  flex-direction: row;
-}
-
-.project-card--featured .project-card__img-wrap {
-  width: 55%;
-  flex-shrink: 0;
-  aspect-ratio: unset;
-  min-height: 260px;
-}
-
-.project-card--featured .project-card__body {
-  padding: var(--space-8);
-}
-
-.project-card--featured .project-card__title {
-  font-size: 1.25rem;
-}
-
-.project-card--featured .project-card__desc {
-  font-size: 0.94rem;
-}
-
 .project-card {
   background: var(--clr-bg-card);
   border: 1px solid var(--clr-border);
@@ -830,6 +812,32 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-5px);
   border-color: var(--clr-border-glow);
   box-shadow: var(--shadow-card), var(--shadow-glow);
+}
+
+/* Featured card spans 2 columns, horizontal layout */
+.project-card--featured {
+  grid-column: span 2;
+  flex-direction: row;
+}
+
+.project-card--featured .project-card__img-wrap {
+  width: 55%;
+  flex-shrink: 0;
+  aspect-ratio: unset;
+  min-height: 260px;
+}
+
+.project-card--featured .project-card__body {
+  padding: var(--space-8);
+  justify-content: center;
+}
+
+.project-card--featured .project-card__title {
+  font-size: 1.35rem;
+}
+
+.project-card--featured .project-card__desc {
+  font-size: 0.95rem;
 }
 
 .project-card__img-wrap {
