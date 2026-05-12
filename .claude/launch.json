@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "kminds",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-p", "5500", "."],
+      "runtimeExecutable": "php",
+      "runtimeArgs": ["-S", "localhost:5500", "-t", "."],
       "port": 5500
     }
   ]
