@@ -70,7 +70,8 @@ $bgLabels = ['beginner' => 'Beginner', 'intermediate' => 'Intermediate', 'advanc
     <a href="/index.html" class="dash-topbar__logo"><span>K</span>mind</a>
     <nav class="dash-topbar__nav">
       <a href="/dashboard.php">Dashboard</a>
-      <a href="/admin.php" class="active">Admin Panel</a>
+      <a href="/admin.php" class="active">Members</a>
+      <a href="/admin-events.php">Events</a>
       <a href="/index.html">Main Site</a>
     </nav>
     <div class="dash-topbar__right">
