@@ -5,13 +5,17 @@ require_login();
 $user = current_user();
 $db   = getDB();
 
-// ── Static events definition ──────────────────────────────────────────────────
-$events = [
-    ['slug' => 'transformers-workshop',  'day' => '28', 'month' => 'Apr', 'title' => 'Intro to Transformers Workshop',   'location' => 'Room 301, CS Building',   'time' => '3:00 PM – 6:00 PM'],
-    ['slug' => 'ml-hackathon-2026',       'day' => '10', 'month' => 'May', 'title' => 'ML Hackathon 2026',                'location' => 'University Auditorium',   'time' => '48 Hours'],
-    ['slug' => 'paper-reading-may',       'day' => '20', 'month' => 'May', 'title' => 'Research Paper Reading Group',     'location' => 'Online (Google Meet)',    'time' => '5:00 PM – 7:00 PM'],
-    ['slug' => 'cv-bootcamp',             'day' => '15', 'month' => 'Mar', 'title' => 'Computer Vision Bootcamp',         'location' => 'Lab 4, Engineering Block','time' => '2 Days'],
-];
+// ── Events from DB ────────────────────────────────────────────────────────────
+$eventsRaw = $db->query('SELECT * FROM events ORDER BY id ASC')->fetchAll();
+// Normalise 'event_time' → 'time' so templates keep working
+$events = array_map(function($e) {
+    $e['time'] = $e['event_time'];
+    return $e;
+}, $eventsRaw);
+
+// ── Live stats ────────────────────────────────────────────────────────────────
+$statMembers = (int) $db->query("SELECT COUNT(*) FROM users WHERE status = 'approved'")->fetchColumn();
+$statEvents  = (int) $db->query('SELECT COUNT(*) FROM events')->fetchColumn();
 
 // ── Handle RSVP POST ──────────────────────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rsvp_action'])) {
@@ -139,7 +143,7 @@ $isAdmin    = $user['role'] === 'admin';
       <h2 class="dash-section-title">Club Stats</h2>
       <div class="dash-stat-grid">
         <div class="dash-stat">
-          <div class="dash-stat__num">65<span style="font-size:1.2rem;color:var(--clr-text-muted)">+</span></div>
+          <div class="dash-stat__num"><?= $statMembers ?></div>
           <div class="dash-stat__label">Members</div>
         </div>
         <div class="dash-stat">
@@ -147,7 +151,7 @@ $isAdmin    = $user['role'] === 'admin';
           <div class="dash-stat__label">Projects</div>
         </div>
         <div class="dash-stat">
-          <div class="dash-stat__num">20<span style="font-size:1.2rem;color:var(--clr-text-muted)">+</span></div>
+          <div class="dash-stat__num"><?= $statEvents ?></div>
           <div class="dash-stat__label">Events</div>
         </div>
         <div class="dash-stat">
@@ -246,6 +250,9 @@ $isAdmin    = $user['role'] === 'admin';
           <span class="dash-profile__row-label">Joined</span>
           <span class="dash-profile__row-val"><?= e(date('M j, Y', strtotime($user['created_at']))) ?></span>
         </div>
+        <a href="/profile.php" class="btn btn--ghost btn--full" style="margin-top:var(--space-4);font-size:0.82rem;padding:0.45rem 1rem;">
+          Edit Profile
+        </a>
       </div>
 
       <?php if ($isAdmin): ?>
