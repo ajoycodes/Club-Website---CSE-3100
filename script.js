@@ -244,38 +244,18 @@
 
     if (!valid) return;
 
-    // Success state
+    // Redirect to signup.php with pre-filled values
     const btn = form.querySelector('.join__submit');
     btn.disabled = true;
-    btn.textContent = 'Sending…';
+    btn.textContent = 'Redirecting…';
 
-    // Simulate async submit (replace with real fetch when backend is ready)
-    setTimeout(() => {
-      form.innerHTML = `
-        <div style="
-          text-align:center;
-          padding: 3rem 1rem;
-          display:flex;
-          flex-direction:column;
-          align-items:center;
-          gap:1rem;
-        ">
-          <div style="
-            width:64px; height:64px; border-radius:50%;
-            background: rgba(79,142,247,0.12);
-            border: 2px solid rgba(79,142,247,0.4);
-            display:flex; align-items:center; justify-content:center;
-            font-size:1.8rem;
-          ">&#10003;</div>
-          <h3 style="font-family:'Space Grotesk',sans-serif;color:#f0f4ff;font-size:1.3rem;">
-            Application received!
-          </h3>
-          <p style="color:#8892a4;max-width:380px;font-size:0.95rem;line-height:1.65;">
-            Thanks for applying to Kmind. We review applications weekly and
-            will reach out within 5–7 days.
-          </p>
-        </div>
-      `;
-    }, 800);
+    const params = new URLSearchParams({
+      first_name: firstName.value.trim(),
+      last_name:  lastName.value.trim(),
+      email:      email.value.trim(),
+      background: background.value,
+      interest:   (form.querySelector('#interest')?.value) || '',
+    });
+    window.location.href = '/signup.php?' + params.toString();
   });
 })();

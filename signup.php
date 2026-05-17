@@ -9,6 +9,20 @@ $errors  = [];
 $success = false;
 $old     = [];
 
+// Pre-populate from homepage join form redirect
+$allowedBg = ['beginner', 'intermediate', 'advanced'];
+$allowedInterest = ['cv', 'nlp', 'rl', 'ds', 'mlops', 'research'];
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['first_name'])) {
+    $old = [
+        'first_name' => trim($_GET['first_name'] ?? ''),
+        'last_name'  => trim($_GET['last_name']  ?? ''),
+        'email'      => trim($_GET['email']      ?? ''),
+        'department' => '',
+        'background' => in_array($_GET['background'] ?? '', $allowedBg) ? $_GET['background'] : '',
+        'interest'   => in_array($_GET['interest'] ?? '', $allowedInterest) ? $_GET['interest'] : '',
+    ];
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verify_csrf($_POST['csrf_token'] ?? '')) {
         $errors[] = 'Invalid request. Please try again.';
