@@ -64,13 +64,14 @@
 
   function randomNode() {
     return {
-      x:   Math.random() * W,
-      y:   Math.random() * H,
-      vx:  (Math.random() - 0.5) * 0.35,
-      vy:  (Math.random() - 0.5) * 0.35,
-      r:   Math.random() * 2 + 1.5,
-      // pulse phase offset
+      x:     Math.random() * W,
+      y:     Math.random() * H,
+      vx:    (Math.random() - 0.5) * 0.35,
+      vy:    (Math.random() - 0.5) * 0.35,
+      r:     Math.random() * 2 + 1.5,
       phase: Math.random() * Math.PI * 2,
+      // assign color once on creation — not every frame
+      color: Math.random() > 0.8 ? PURPLE : BLUE,
     };
   }
 
@@ -103,7 +104,7 @@
     // nodes
     nodes.forEach(n => {
       const pulse = 0.6 + 0.4 * Math.sin(t * PULSE_SPEED + n.phase);
-      const color = Math.random() > 0.8 ? PURPLE : BLUE;
+      const color = n.color;
 
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r * pulse, 0, Math.PI * 2);
@@ -148,7 +149,77 @@
 })();
 
 
-/* ── 4. SCROLL REVEAL ── */
+/* ── 4. ACTIVE NAV STATE ── */
+(function () {
+  const navLinks = document.querySelectorAll('.navbar__links a[href^="#"]');
+  const sections = document.querySelectorAll('main section[id]');
+  if (!navLinks.length || !sections.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('is-active'));
+        const link = document.querySelector(`.navbar__links a[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('is-active');
+      }
+    });
+  }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+})();
+
+
+/* ── 5. COUNT-UP STATS ── */
+(function () {
+  const statNumbers = document.querySelectorAll('.stat-card__number');
+  if (!statNumbers.length) return;
+
+  function animateCount(el) {
+    // Read the target from the text node (excludes the .stat-card__plus child)
+    const plusEl = el.querySelector('.stat-card__plus');
+    const rawText = el.childNodes[0] ? el.childNodes[0].textContent.trim() : '';
+    const target = parseInt(rawText, 10);
+    if (isNaN(target)) return;
+
+    const duration = 1400;
+    const start = performance.now();
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+
+      // Update only the text node, preserving the + child
+      el.childNodes[0].textContent = current;
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.childNodes[0].textContent = target;
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  if (!('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  statNumbers.forEach(el => observer.observe(el));
+})();
+
+
+/* ── 6. SCROLL REVEAL ── */
 (function () {
   const els = document.querySelectorAll('[data-reveal]');
   if (!els.length) return;
@@ -181,7 +252,7 @@
 })();
 
 
-/* ── 5. JOIN FORM ── */
+/* ── 7. JOIN FORM ── */
 (function () {
   const form = document.getElementById('joinForm');
   if (!form) return;

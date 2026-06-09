@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kmind — Machine Learning Club</title>
+    <meta name="description" content="A student ML research club where curiosity meets computation. We read papers, build projects, and ship things that actually work.">
+    <meta property="og:title" content="Kmind — Machine Learning Club">
+    <meta property="og:description" content="A student club where curiosity meets computation — we read papers, break models, and occasionally ship something that actually works.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kmind — Machine Learning Club">
+    <meta name="twitter:description" content="A student ML research club. Papers, projects, hackathons.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d0f14'/><text y='78' x='10' font-size='80' font-family='system-ui,sans-serif' font-weight='700' fill='%234F8EF7'>K</text></svg>">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -23,6 +31,10 @@
           <a href="#events">Events</a>
           <a href="#team">Team</a>
           <a href="blog.html">Blog</a>
+          <div class="navbar__mobile-actions">
+            <a href="/login.php" class="btn btn--ghost">Sign In</a>
+            <a href="#join" class="btn btn--primary">Join Us</a>
+          </div>
         </nav>
 
         <div class="navbar__actions">
@@ -50,16 +62,14 @@
           <div class="container">
             <div class="hero__layout">
 
-              <!-- Left: editorial text -->
               <div class="hero__content">
                 <p class="hero__eyebrow">
                   <span class="hero__eyebrow-dot" aria-hidden="true"></span>
                   Est. 2023 &middot; Student ML Research Club
                 </p>
                 <h1 class="hero__title">
-                  We build<br>
-                  <span class="hero__title-gradient">intelligent</span><br>
-                  systems.
+                  We build <span class="hero__title-gradient">intelligent</span><br>
+                  and efficient systems.
                 </h1>
                 <p class="hero__tagline">
                   A student club where curiosity meets computation &mdash;
@@ -69,23 +79,6 @@
                 <div class="hero__actions">
                   <a href="#about" class="btn btn--primary">Explore the Club</a>
                   <a href="#projects" class="btn btn--ghost">See Our Work</a>
-                </div>
-              </div>
-
-              <!-- Right: floating visual panel -->
-              <div class="hero__visual" aria-hidden="true">
-                <div class="hero__orb"></div>
-                <div class="hero__float-card hero__float-card--1">
-                  <span class="hero__float-num">65+</span>
-                  <span class="hero__float-label">Members</span>
-                </div>
-                <div class="hero__float-card hero__float-card--2">
-                  <span class="hero__float-num">14+</span>
-                  <span class="hero__float-label">Projects</span>
-                </div>
-                <div class="hero__float-card hero__float-card--3">
-                  <span class="hero__float-num">6</span>
-                  <span class="hero__float-label">Papers</span>
                 </div>
               </div>
 
@@ -204,10 +197,9 @@
                   generative image models using CNNs, ViTs, and diffusion.
                 </p>
               </div>
-              <span class="focus-item__icon" aria-hidden="true">&#128065;</span>
             </div>
 
-            <div class="focus-item" data-reveal data-reveal-delay="60">
+            <div class="focus-item" data-reveal data-reveal-delay="100">
               <span class="focus-item__num">02</span>
               <div class="focus-item__body">
                 <h3 class="focus-item__title">Natural Language Processing</h3>
@@ -216,10 +208,9 @@
                   and building language-aware applications.
                 </p>
               </div>
-              <span class="focus-item__icon" aria-hidden="true">&#128172;</span>
             </div>
 
-            <div class="focus-item" data-reveal data-reveal-delay="120">
+            <div class="focus-item" data-reveal data-reveal-delay="200">
               <span class="focus-item__num">03</span>
               <div class="focus-item__body">
                 <h3 class="focus-item__title">Reinforcement Learning</h3>
@@ -228,10 +219,9 @@
                   applying RL to games, robotics, and optimization.
                 </p>
               </div>
-              <span class="focus-item__icon" aria-hidden="true">&#127918;</span>
             </div>
 
-            <div class="focus-item" data-reveal data-reveal-delay="180">
+            <div class="focus-item" data-reveal data-reveal-delay="300">
               <span class="focus-item__num">04</span>
               <div class="focus-item__body">
                 <h3 class="focus-item__title">Data Science &amp; Analytics</h3>
@@ -240,10 +230,9 @@
                   and turning raw data into actionable insights.
                 </p>
               </div>
-              <span class="focus-item__icon" aria-hidden="true">&#128200;</span>
             </div>
 
-            <div class="focus-item" data-reveal data-reveal-delay="240">
+            <div class="focus-item" data-reveal data-reveal-delay="400">
               <span class="focus-item__num">05</span>
               <div class="focus-item__body">
                 <h3 class="focus-item__title">MLOps &amp; Deployment</h3>
@@ -252,10 +241,9 @@
                   ML projects from notebook to production.
                 </p>
               </div>
-              <span class="focus-item__icon" aria-hidden="true">&#129302;</span>
             </div>
 
-            <div class="focus-item" data-reveal data-reveal-delay="300">
+            <div class="focus-item" data-reveal data-reveal-delay="500">
               <span class="focus-item__num">06</span>
               <div class="focus-item__body">
                 <h3 class="focus-item__title">AI Research</h3>
@@ -264,7 +252,6 @@
                   targeting top ML conferences and journals.
                 </p>
               </div>
-              <span class="focus-item__icon" aria-hidden="true">&#128300;</span>
             </div>
 
           </div>
@@ -282,7 +269,7 @@
 
           <div class="projects__grid">
 
-            <article class="project-card project-card--featured" data-reveal>
+            <article class="project-card" data-reveal>
               <div class="project-card__img-wrap">
                 <img class="project-card__img" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=500&fit=crop&auto=format&q=80" alt="CampusLens – computer vision" loading="lazy">
               </div>
@@ -423,8 +410,8 @@
                   encoding, and building a mini-transformer from scratch in PyTorch.
                 </p>
                 <div class="event-card__meta">
-                  <span>&#128205; Room 301, CS Building</span>
-                  <span>&#128336; 3:00 PM &ndash; 6:00 PM</span>
+                  <span><svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Room 301, CS Building</span>
+                  <span><svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3:00 PM &ndash; 6:00 PM</span>
                 </div>
               </div>
             </div>
@@ -442,8 +429,8 @@
                   a real-world problem. Cash prizes and internship opportunities.
                 </p>
                 <div class="event-card__meta">
-                  <span>&#128205; University Auditorium</span>
-                  <span>&#128336; 48 Hours</span>
+                  <span><svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>University Auditorium</span>
+                  <span><svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>48 Hours</span>
                 </div>
               </div>
             </div>
@@ -461,8 +448,8 @@
                   You Need" and its influence on modern LLM architectures.
                 </p>
                 <div class="event-card__meta">
-                  <span>&#128205; Online (Google Meet)</span>
-                  <span>&#128336; 5:00 PM &ndash; 7:00 PM</span>
+                  <span><svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online (Google Meet)</span>
+                  <span><svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5:00 PM &ndash; 7:00 PM</span>
                 </div>
               </div>
             </div>
@@ -480,8 +467,8 @@
                   image classifier deployed to a web app. 60+ attendees.
                 </p>
                 <div class="event-card__meta">
-                  <span>&#128205; Lab 4, Engineering Block</span>
-                  <span>&#128336; 2 Days</span>
+                  <span><svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Lab 4, Engineering Block</span>
+                  <span><svg class="icon-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Days</span>
                 </div>
               </div>
             </div>
@@ -546,7 +533,7 @@
               </div>
             </div>
 
-            <div class="team-card" data-reveal data-reveal-delay="0">
+            <div class="team-card" data-reveal data-reveal-delay="240">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=57" alt="Raihan Kabir">
               <h3 class="team-card__name">Raihan Kabir</h3>
               <p class="team-card__role">Head of Events</p>
@@ -556,7 +543,7 @@
               </div>
             </div>
 
-            <div class="team-card" data-reveal data-reveal-delay="60">
+            <div class="team-card" data-reveal data-reveal-delay="300">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=40" alt="Sadia Akter">
               <h3 class="team-card__name">Sadia Akter</h3>
               <p class="team-card__role">Head of Design</p>
@@ -566,7 +553,7 @@
               </div>
             </div>
 
-            <div class="team-card" data-reveal data-reveal-delay="120">
+            <div class="team-card" data-reveal data-reveal-delay="360">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=65" alt="Mehedi Hasan">
               <h3 class="team-card__name">Mehedi Hasan</h3>
               <p class="team-card__role">Core Developer</p>
@@ -576,7 +563,7 @@
               </div>
             </div>
 
-            <div class="team-card" data-reveal data-reveal-delay="180">
+            <div class="team-card" data-reveal data-reveal-delay="420">
               <img class="team-card__avatar" src="https://i.pravatar.cc/160?img=35" alt="Fatema Begum">
               <h3 class="team-card__name">Fatema Begum</h3>
               <p class="team-card__role">Core Researcher</p>
