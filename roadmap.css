@@ -96,7 +96,9 @@
 }
 
 .track-tab__icon {
-  font-size: 1rem;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
 }
 
 /* ── Track content panels ── */
@@ -289,13 +291,16 @@
 }
 
 .resource-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--clr-blue);
   background: var(--clr-blue-dim);
   border: 1px solid rgba(79, 142, 247, 0.15);
   border-radius: var(--radius-sm);
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.65rem;
   transition: background var(--transition), color var(--transition);
 }
 
