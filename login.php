@@ -38,6 +38,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_regenerate_id(true);
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['role']    = $user['role'];
+
+                // Remember Me cookie (30 days)
+                if (!empty($_POST['remember_me'])) {
+                    $rawToken    = bin2hex(random_bytes(32));
+                    $hashedToken = hash('sha256', $rawToken);
+                    $expires     = date('Y-m-d H:i:s', time() + 30 * 24 * 3600);
+                    getDB()->prepare(
+                        'UPDATE users SET remember_token = ?, remember_expires = ? WHERE id = ?'
+                    )->execute([$hashedToken, $expires, $user['id']]);
+                    setcookie(
+                        'remember_me',
+                        $user['id'] . '|' . $rawToken,
+                        time() + 30 * 24 * 3600,
+                        '/', '', false, true   // path, domain, secure, httponly
+                    );
+                }
+
                 redirect('/dashboard.php');
             }
         }
@@ -103,6 +120,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           required
           autocomplete="current-password"
         />
+      </div>
+
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-top:var(--space-4);">
+        <input type="checkbox" id="remember_me" name="remember_me" value="1"
+               style="width:auto;accent-color:var(--clr-accent);cursor:pointer;"
+               <?= !empty($_POST['remember_me']) ? 'checked' : '' ?>>
+        <label for="remember_me" class="form-label"
+               style="margin:0;cursor:pointer;font-weight:400;">
+          Remember me for 30 days
+        </label>
       </div>
 
       <button type="submit" class="btn btn--primary btn--full" style="margin-top: 0.5rem;">

@@ -18,6 +18,31 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once __DIR__ . '/db.php';
 
+// ── Remember-Me auto-login ────────────────────────────────────────────────────
+// If no active session but a remember_me cookie exists, try to restore the login.
+if (empty($_SESSION['user_id']) && isset($_COOKIE['remember_me'])) {
+    $parts = explode('|', $_COOKIE['remember_me'], 2);
+    if (count($parts) === 2 && ctype_digit($parts[0])) {
+        $cookieUserId    = (int) $parts[0];
+        $hashedToken     = hash('sha256', $parts[1]);
+        $stmt = getDB()->prepare(
+            'SELECT id, role FROM users
+             WHERE id = ? AND remember_token = ? AND remember_expires > NOW()
+               AND status = "approved"'
+        );
+        $stmt->execute([$cookieUserId, $hashedToken]);
+        $remembered = $stmt->fetch();
+        if ($remembered) {
+            session_regenerate_id(true);
+            $_SESSION['user_id'] = $remembered['id'];
+            $_SESSION['role']    = $remembered['role'];
+        } else {
+            // Stale or invalid — delete the cookie
+            setcookie('remember_me', '', time() - 3600, '/', '', false, true);
+        }
+    }
+}
+
 // ── CSRF ─────────────────────────────────────────────────────────────────────
 
 function csrf_token(): string {
