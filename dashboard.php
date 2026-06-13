@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 require_once __DIR__ . '/auth/init.php';
 require_login();
 
@@ -119,7 +120,7 @@ $isAdmin    = $user['role'] === 'admin';
           <?= $isAdmin ? 'Admin Dashboard' : 'Member Dashboard' ?>
         </p>
         <h1 class="dash-welcome__title">
-          Welcome back, <?= e($user['first_name']) ?> &#128075;
+          Welcome back, <?= e($user['first_name']) ?>
         </h1>
       </div>
 
@@ -176,8 +177,8 @@ $isAdmin    = $user['role'] === 'admin';
           <div class="dash-event-card__body">
             <p class="dash-event-card__title"><?= e($ev['title']) ?></p>
             <div class="dash-event-card__meta">
-              <span>&#128205; <?= e($ev['location']) ?></span>
-              <span>&#128336; <?= e($ev['time']) ?></span>
+              <span><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> <?= e($ev['location']) ?></span>
+              <span><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <?= e($ev['time']) ?></span>
             </div>
           </div>
 

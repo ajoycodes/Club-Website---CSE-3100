@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 require_once __DIR__ . '/auth/init.php';
 require_admin();
 
@@ -154,12 +155,11 @@ $initials = strtoupper(substr($user['first_name'], 0, 1) . substr($user['last_na
             <?php foreach ($events as $ev): ?>
             <tr>
               <td>
-                <strong><?= e($ev['title']) ?></strong>
-                <div style="font-size:0.75rem;color:var(--clr-text-faint);margin-top:2px;"><?= e($ev['slug']) ?></div>
+                <div class="admin-table__name"><?= e($ev['title']) ?></div>
               </td>
-              <td><?= e($ev['day'] . ' ' . $ev['month'] . ' ' . $ev['year']) ?></td>
+              <td style="white-space:nowrap;"><?= e($ev['day'] . ' ' . $ev['month'] . ' ' . $ev['year']) ?></td>
               <td><?= e($ev['location']) ?></td>
-              <td><?= e($ev['event_time']) ?></td>
+              <td style="white-space:nowrap;"><?= e($ev['event_time']) ?></td>
               <td style="text-align:center;">
                 <span class="badge badge--member"><?= (int)$ev['rsvp_count'] ?></span>
               </td>
@@ -169,7 +169,7 @@ $initials = strtoupper(substr($user['first_name'], 0, 1) . substr($user['last_na
                   <?= csrf_field() ?>
                   <input type="hidden" name="action" value="delete">
                   <input type="hidden" name="event_id" value="<?= (int)$ev['id'] ?>">
-                  <button type="submit" class="btn-action btn-action--reject">Delete</button>
+                  <button type="submit" class="btn btn--danger btn--sm">Delete</button>
                 </form>
               </td>
             </tr>
