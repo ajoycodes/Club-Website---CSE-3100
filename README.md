@@ -15,7 +15,6 @@ A fully custom-built website for the Kmind ML Research Club. Built from scratch 
 ## Features
 
 ### Frontend
-- Neural network canvas animation on hero section
 - CSS marquee ticker strip (no JavaScript)
 - Scroll-reveal animations using Intersection Observer API
 - Count-up stat animations
@@ -27,7 +26,7 @@ A fully custom-built website for the Kmind ML Research Club. Built from scratch 
 ### Pages
 - Homepage
 - Projects (with individual project detail pages)
-- Research Papers (with BibTeX cite modal)
+- Research Papers 
 - Learning Roadmap (5 tracks with phase-by-phase curriculum)
 - Blog
 - Events
@@ -37,7 +36,6 @@ A fully custom-built website for the Kmind ML Research Club. Built from scratch 
 - Session-based login with PHP + MySQL PDO
 - Remember Me (30-day secure cookie with SHA-256 hashed token)
 - Role-based access control (member / admin)
-- CSRF protection
 - Member dashboard with RSVP system
 - Admin panel — approve/reject members, create/delete events
 
@@ -72,13 +70,6 @@ php -S localhost:8000
 ### Default Admin Login
 - **Email:** admin@kmind.com
 - **Password:** admin123
-
-> Insert admin user by running:
-> ```sql
-> INSERT INTO users (first_name, last_name, email, password, role, status)
-> VALUES ('Admin', 'Kmind', 'admin@kmind.com', '<bcrypt_hash>', 'admin', 'approved');
-> ```
-> Generate hash: `php -r "echo password_hash('admin123', PASSWORD_BCRYPT);"`
 
 ## Project Structure
 
